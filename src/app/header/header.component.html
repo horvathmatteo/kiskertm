@@ -1,0 +1,86 @@
+<head>
+  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/b584f9942ba804448f38a21c7/68528f8443efd56f64d71041b.js");</script>
+</head>
+
+<div class="menu">
+<nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand" routerLink='/home'>
+            <img class="logo" src="assets/newlogo4.png" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarCollapse"
+       aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/home" routerLinkActive="active">Kezdőlap
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/order" routerLinkActive="active">Palántarendelés</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/vegetable-box" routerLinkActive="active">Zöldségdoboz</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/newsletter" routerLinkActive="active">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link subs" role="button" data-toggle="modal" data-target="#myModal" role="button" href="#">Hírlevél</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+  <!-- <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-newsletter">
+      <div class="modal-content">
+        <form >
+          <div class="modal-header">
+            <h4>Iratkozz fel a hírlevélre!</h4>	
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>&times;</span></button>
+          </div>
+          <div class="modal-body">					
+            <p>Signup for our weekly newsletter to get the latest news, updates and amazing offers delivered directly in your inbox.</p>
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Add meg az email címed" required>
+              <span class="input-group-btn">
+                <input type="submit" class="btn btn-primary" value="Feliratkozom">
+              </span>
+            </div>
+          </div>
+        </form>			
+      </div>
+    </div>
+  </div> -->
+
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-newsletter">
+      <div class="modal-content">
+        <form #subscribeForm='ngForm' (ngSubmit)='subscribe(subscribeForm)'>
+          <div class="modal-header">
+            <h4>Iratkozz fel a hírlevélre!</h4>	
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" #closebutton class="close"><span>&times;</span></button>
+          </div>
+          <div class="modal-body">					
+            <p>Signup for our weekly newsletter to get the latest news, updates and amazing offers delivered directly in your inbox.</p>
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Add meg az email címed" NgModel pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+              #email='ngModel' name='email'
+                [(ngModel)]='subscribeData.email' required>
+              <span class="input-group-btn">
+                <input type="submit" class="btn btn-primary" value="Feliratkozom">
+              </span>
+            </div>
+            <div *ngIf="email.errors && (email.invalid || email.touched)">
+              <small class="text-danger" *ngIf="email.errors?.required">Email megadása kötelező</small>
+              <small class="text-danger" *ngIf="email.errors?.pattern">Kérlek valós címet adj meg</small>
+          </div>
+          </div>
+        </form>			
+      </div>
+    </div>
+  </div>
