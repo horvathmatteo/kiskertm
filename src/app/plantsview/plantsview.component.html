@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="col-md-4 mt-4" *ngFor="let plant of plants; let i = index">
+        <div class="card profile-card-5" *ngIf="plant.category == category">
+            <div class="card-img-block">
+                <img class="card-img-top" src="{{plant.img}}" alt="Card image cap">
+            </div>
+            <div class="card-body pt-0">
+                <h4 class="card-title">{{plant.species}}</h4>
+                <p class="card-text">{{plant.description}}</p>
+                <p class="card-text" *ngIf="plant.price_one">Cserepes ár: {{plant.price_one}} Ft/db</p>
+                <p class="card-text" *ngIf="plant.price_two">Földkockás ár: {{plant.price_two}} Ft/db</p>
+            </div>
+        </div>
+    </div>
+</div>

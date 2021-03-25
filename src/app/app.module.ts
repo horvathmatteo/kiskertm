@@ -19,6 +19,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { AddPlantComponent } from './components/add-plant/add-plant.component';
+import { PlantDetailsComponent } from './components/plant-details/plant-details.component';
+import { PlantListComponent } from './components/plant-list/plant-list.component';
+import { PlantsviewComponent } from './plantsview/plantsview.component';
 
 const routes: Routes = [
 
@@ -31,7 +35,11 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     VegetableBoxComponent,
-    NewsletterComponent
+    NewsletterComponent,
+    AddPlantComponent,
+    PlantDetailsComponent,
+    PlantListComponent,
+    PlantsviewComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +52,9 @@ const routes: Routes = [
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MDBBootstrapModule.forRoot()
-    // AngularFireModule.initializeApp(environment.firebase),
-    // AngularFireModule
+    MDBBootstrapModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [
     {

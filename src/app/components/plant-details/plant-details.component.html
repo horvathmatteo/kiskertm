@@ -1,0 +1,55 @@
+<div *ngIf="currentPlant" class="edit-form">
+    <h4>Palánták</h4>
+    <form>
+        <div class="form-group">
+            <label for="category">Kategória</label>
+            <input type="text" class="form-control" id="category" [(ngModel)]="currentPlant.category" name="category" />
+        </div>
+        <div class="form-group">
+            <label for="species">Fajta</label>
+            <input type="text" class="form-control" id="species" [(ngModel)]="currentPlant.species"
+                name="species" />
+        </div>
+        <div class="form-group">
+            <label for="description">Leírás</label>
+            <input type="text" class="form-control" id="description" [(ngModel)]="currentPlant.description"
+                name="description" />
+        </div>
+        <div class="form-group">
+            <label for="price_one">Cserepes ár</label>
+            <input type="text" class="form-control" id="price_one" [(ngModel)]="currentPlant.price_one"
+                name="price_one" />
+        </div>
+        <div class="form-group">
+            <label for="price_two">Földkockás ár</label>
+            <input type="text" class="form-control" id="price_two" [(ngModel)]="currentPlant.price_two"
+                name="price_two" />
+        </div>
+
+        <div class="form-group">
+            <label><strong>Status:</strong></label>
+            {{ currentPlant.published ? "Published" : "Pending" }}
+        </div>
+    </form>
+
+    <button class="badge badge-primary mr-2" *ngIf="currentPlant.published" (click)="updatePublished(false)">
+        UnPublish
+    </button>
+    <button *ngIf="!currentPlant.published" class="badge badge-primary mr-2" (click)="updatePublished(true)">
+        Publish
+    </button>
+
+    <button class="badge badge-danger mr-2" (click)="deletePlant()">
+        Delete
+    </button>
+
+    <button type="submit" class="badge badge-success" (click)="updatePlant()">
+        Update
+    </button>
+    <p>{{ message }}</p>
+</div>
+
+<div *ngIf="!currentPlant">
+    <br />
+    <p>Cannot access this Tutorial...</p>
+</div>

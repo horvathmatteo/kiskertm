@@ -12,7 +12,7 @@ export const environment = {
     storageBucket: "kiskertm-8f44d.appspot.com",
     messagingSenderId: "602092594976",
     appId: "1:602092594976:web:4e420f62fac80fca529945",
-    measurementId: "G-7TK1RMB9T4"
+    measurementId: "G-7TK1RMB9T4"  
   }
 };
 
