@@ -21,14 +21,15 @@
           <li class="nav-item dropdown">  
             <a class="nav-link dropdown-toggle" routerLinkActive="active" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Palánták</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" routerLink="/plants" [queryParams]="{ category: 'paprika'}">Paprika</a>
-              <a class="dropdown-item" routerLink="/plants" [queryParams]="{ category: 'paradicsom'}">Paradicsom</a>
-              <a class="dropdown-item" routerLink="/plants" [queryParams]="{ category: 'tökfélék'}">Tökfélék</a>
-              <a class="dropdown-item" routerLink="/plants" [queryParams]="{ category: 'káposztafélék'}">Káposztafélék</a>
-              <a class="dropdown-item" routerLink="/plants" [queryParams]="{ category: 'saláták'}">Saláták</a>
-              <a class="dropdown-item" routerLink="/plants" [queryParams]="{ category: 'uborka'}">Uborka</a>
-              <a class="dropdown-item" routerLink="/plants" [queryParams]="{ category: 'fűszerek'}">Fűszerek</a>
-              <a class="dropdown-item" routerLink="/plants" [queryParams]="{ category: 'egyéb'}">Egyéb</a>
+              <a class="dropdown-item" routerLink="/plants" routerLinkActive="active"  [queryParams]="{ category: 'összes'}">Összes</a>
+              <a class="dropdown-item" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'paprika'}">Paprika</a>
+              <a class="dropdown-item" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'paradicsom'}">Paradicsom</a>
+              <a class="dropdown-item" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'tökfélék'}">Tökfélék</a>
+              <a class="dropdown-item" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'káposztafélék'}">Káposztafélék</a>
+              <a class="dropdown-item" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'saláták'}">Saláták</a>
+              <a class="dropdown-item" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'uborka'}">Uborka</a>
+              <a class="dropdown-item" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'fűszerek'}">Fűszerek</a>
+              <a class="dropdown-item" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'egyéb'}">Egyéb</a>
             </div>
           </li>
           <li class="nav-item">
