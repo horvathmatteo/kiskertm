@@ -12,6 +12,7 @@ export class PlantDetailsComponent implements OnInit, OnChanges {
   @Input() plant?: Plant;
   @Output() refreshList: EventEmitter<any> = new EventEmitter();
   currentPlant: Plant = {
+    img: '',
     category: '',
     species: '',
     description: '',
@@ -45,6 +46,7 @@ export class PlantDetailsComponent implements OnInit, OnChanges {
 
   updatePlant(): void {
     const data = {
+      img: this.currentPlant.img,
       category: this.currentPlant.category,
       species: this.currentPlant.species,
       description: this.currentPlant.description,

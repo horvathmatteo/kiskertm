@@ -3,7 +3,7 @@
         <div class=" col col-md-4 mt-4" *ngFor="let plant of categoryPlants;">
             <div class="card profile-card-5 shadow">
                 <div class="card-img-block">
-                    <img class="card-img-top" src="https://i.ibb.co/dkTqGyg/paradicsom.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="{{plant.img}}" alt="Card image cap">
                 </div>
                 <div class="card-body pt-0">
                     <h4 class="card-title">{{plant.species}}</h4>

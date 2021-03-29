@@ -2,6 +2,10 @@
     <h4>Palánták</h4>
     <form>
         <div class="form-group">
+            <label for="category">Kép url</label>
+            <input type="text" class="form-control" id="img" [(ngModel)]="currentPlant.img" name="img" />
+        </div>
+        <div class="form-group">
             <label for="category">Kategória</label>
             <input type="text" class="form-control" id="category" [(ngModel)]="currentPlant.category" name="category" />
         </div>
