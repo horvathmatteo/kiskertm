@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-newsletter',
@@ -9,7 +10,9 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class NewsletterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private title: Title) {
+    this.title.setTitle('Kiskert-M | Blog')
+   }
 
   ngOnInit(): void {
     

@@ -5,36 +5,62 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 cizgi">
                     <div class="card bg-secondary border-0">
                         <div class="card-body text-light text-center">
-                            <h5 class="card-title text-white display-4" style="font-size:30px">Kiskert-M</h5>
-                        <p class="d-inline lead">Nagy Petra Mercédesz © 2021<br>
-                        <a href="#" class="text-light d-block lead">Blog</a>
-                        </p>
+                            <!-- <h5 class="card-title text-white display-4" style="font-size:30px">Kiskert-M</h5>
+                            <p class="d-inline lead">Nagy Petra Mercédesz © 2021<br>
+                                <a href="#" class="text-light d-block lead">Blog</a>
+                            </p> -->
+                            <form #subscribeForm='ngForm' (ngSubmit)='subscribe(subscribeForm)'>
+                                <div class="header">
+                                    <h1 class="sub">Iratkozz fel a hírlevélre!</h1>	
+                                </div>
+                                <div class="body">
+                                    <div>
+                                        <input type="email" class="form-control" placeholder="Add meg az email címed" NgModel pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+                                        #email='ngModel' name='email'
+                                          [(ngModel)]='subscribeData.email' required>
+                                        <div class="input-group-btn mt-3">
+                                          <input type="submit" class="btn btn-outline-light" value="Feliratkozom">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
 
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 cizgi">
                     <div class="card bg-secondary border-0">
-                        <div class="card-body text-center">
+                        <div class="card-body text-center pt-5">
                             <h5 class="card-title text-white display-4" style="font-size:30px">Elérhetőség</h5>
-                            <a class="text-light d-block lead" style="margin-left: -20px" href="#"><fa-icon [icon]="phoneIcon" style="color: white;" size="1x"></fa-icon>+36 30 608 8293</a>
-                            <a class="text-light d-block lead" href="#"><fa-icon [icon]="emailIcon" style="color: white;" size="1x"></fa-icon>kiskertm@gmail.com</a>
+                            <a class="text-light d-block lead" style="margin-left: -20px" href="#">
+                                <fa-icon [icon]="phoneIcon" style="color: white;" size="1x"></fa-icon>+36 30 608 8293
+                            </a>
+                            <a class="text-light d-block lead" href="#">
+                                <fa-icon [icon]="emailIcon" style="color: white;" size="1x"></fa-icon>kiskertm@gmail.com
+                            </a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
                     <div class="card bg-secondary border-0">
-                        <div class="card-body text-center">
+                        <div class="card-body text-center pt-5">
                             <h5 class="card-title text-white display-4" style="font-size:30px">Social Media</h5>
 
-                                <button type="button" id="face" (click)="goToUrl('https://www.facebook.com/kiskert.m/')"><fa-icon [icon]="facebookIcon" style="color: white;" size="3x"></fa-icon></button>
-                                <button type="button" id="yt" (click)="goToUrl('https://www.youtube.com/channel/UCPgMdZCIzDRAM9dnhlcxouQ')"><fa-icon [icon]="youtubeIcon" style="color: white;" size="3x"></fa-icon></button>
-                                <button type="button" id="insta" (click)="goToUrl('https://www.instagram.com/kiskert_m/')"><fa-icon [icon]="instagramIcon" style="color: white;" size="3x"></fa-icon></button>
+                            <button type="button" id="face" (click)="goToUrl('https://www.facebook.com/kiskert.m/')">
+                                <fa-icon [icon]="facebookIcon" style="color: white;" size="3x"></fa-icon>
+                            </button>
+                            <button type="button" id="yt"
+                                (click)="goToUrl('https://www.youtube.com/channel/UCPgMdZCIzDRAM9dnhlcxouQ')">
+                                <fa-icon [icon]="youtubeIcon" style="color: white;" size="3x"></fa-icon>
+                            </button>
+                            <button type="button" id="insta" (click)="goToUrl('https://www.instagram.com/kiskert_m/')">
+                                <fa-icon [icon]="instagramIcon" style="color: white;" size="3x"></fa-icon>
+                            </button>
                         </div>
                     </div>
-                </div>	
+                </div>
             </div>
         </div>
     </div>

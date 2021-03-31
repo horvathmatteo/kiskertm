@@ -1,4 +1,5 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { Plant } from '../models/plant.model';
@@ -15,7 +16,8 @@ export class PlantsviewComponent implements OnInit, OnChanges {
   category?: any;
   categoryPlants?: Plant[];
 
-  constructor(private plantService: KiskertmService, private route: ActivatedRoute) {
+  constructor(private plantService: KiskertmService, private route: ActivatedRoute, private title: Title) {
+    this.title.setTitle('Kiskert-M | Palánták')
    }
 
   ngOnChanges(changes: SimpleChanges): void {
