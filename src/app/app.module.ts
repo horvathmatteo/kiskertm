@@ -23,6 +23,7 @@ import { AddPlantComponent } from './components/add-plant/add-plant.component';
 import { PlantDetailsComponent } from './components/plant-details/plant-details.component';
 import { PlantListComponent } from './components/plant-list/plant-list.component';
 import { PlantsviewComponent } from './plantsview/plantsview.component';
+import { OrderComponent } from './order/order.component';
 
 const routes: Routes = [
 
@@ -39,22 +40,23 @@ const routes: Routes = [
     AddPlantComponent,
     PlantDetailsComponent,
     PlantListComponent,
-    PlantsviewComponent
+    PlantsviewComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     FontAwesomeModule,
     RouterModule.forRoot(routes),
     FormsModule,
     HttpClientModule,
     HttpClientJsonpModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatCardModule,
     MDBBootstrapModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
   ],
   providers: [
     {

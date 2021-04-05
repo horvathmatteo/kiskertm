@@ -1,33 +1,23 @@
 
-<!-- <div class="head">
-    <img src="assets/hero-bg.jpg" alt="asd">
-    <div class="centered">
-        <p>Üdvözöllek<br> a <br>honlapomon</p>
-    </div>
-    
-</div> -->
-
-<div class="container-fluid mt-3 mx-auto">
+<div class="container-fluid mt-5 mx-auto">
   <div class="row">
     <div class="col-12">
       <article class="blog-card">
         <div class="blog-card__background shadow border-secondary">
           <div class="card__background--wrapper">
-            <div class="card__background--main" style="background-image: url(./assets/hero-bg.jpg);" >
+            <div class="card__background--main" style="background-image: url(./assets/kezdő2.jpg);">
               <div class="card__background--layer"></div>
             </div>
           </div>
         </div>
         <div class="blog-card__head">
-          <!-- <span class="date__box">
-            <span class="date__day">11</span>
-            <span class="date__month">JAN</span>
-          </span> -->
         </div>
         <div class="blog-card__info">
-          <h2>Rendelj palántát tőlem...</h2>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque vero libero voluptatibus earum? Alias dignissimos quo cum, nulla esse facere atque, blanditiis doloribus at sunt quas, repellendus vel? Et, hic!</p>
-          <a href="#" class="btn btn--with-icon"><i class="btn-icon fa fa-long-arrow-right"></i>ÉRDEKEL</a>
+          <h2 class="tm-color-primary">Foglalj most vegyszermentes palántát!</h2>
+          <p>Nézd meg palántáim széleskörű kínálatát és foglald le a számodra legmegfelelőbb fajtákat. Csak korlátozott mennyiségben
+            elérhetőek, foglalj most, hogy le ne maradj!
+          </p>
+          <a href="#" [routerLink]="['/order']" class="btn btn--with-icon"><i class="btn-icon fa fa-long-arrow-right"></i>FOGLALOK</a>
         </div>
       </article>
     </div>
@@ -40,45 +30,110 @@
       <article class="blog-card">
         <div class="blog-card__background shadow">
           <div class="card__background--wrapper">
-            <div class="card__background--main" style="background-image: url(./assets/hero-bg.jpg);" >
+            <div class="card__background--main" style="background-image: url(./assets/kezdő3.jpg);" >
               <div class="card__background--layer"></div>
             </div>
           </div>
         </div>
         <div class="blog-card__head">
-          <!-- <span class="date__box">
-            <span class="date__day">11</span>
-            <span class="date__month">JAN</span>
-          </span> -->
+</div>
+<div class="blog-card__info">
+  <h2 class="tm-color-primary">Nézd meg, milyen palánták közül válogathatsz!</h2>
+  <p>Kattints a szétnézek gombra és böngéssz a majdnem 100 fajta palánta között. Ha kiválasztottad, melyikeket látnád szívesen a saját kertedben, add le palántarendelésedet gyorsan, amíg el nem fogy az erősen korlátozott készletem.</p>
+  <a href="#" class="btn btn--with-icon" [routerLink]="['/plants']" [queryParams]="{ category: 'összes'}"><i class="btn-icon fa fa-long-arrow-right"></i>SZÉTNÉZEK</a>
+</div>
+</article>
+</div>
+<div class="col-md-6 space mb-4">
+  <article class="blog-card">
+    <div class="blog-card__background shadow">
+      <div class="card__background--wrapper">
+        <div class="card__background--main" style="background-image: url(./assets/kezdő41.jpg);">
+          <div class="card__background--layer"></div>
         </div>
-        <div class="blog-card__info">
-          <h2>Rendelj palántát tőlem...</h2>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque vero libero voluptatibus earum? Alias dignissimos quo cum, nulla esse facere atque, blanditiis doloribus at sunt quas, repellendus vel? Et, hic!</p>
-          <a href="#" class="btn btn--with-icon"><i class="btn-icon fa fa-long-arrow-right"></i>ÉRDEKEL</a>
-        </div>
-      </article>
+      </div>
     </div>
-    <div class="col-md-6 space">
-      <article class="blog-card">
-        <div class="blog-card__background shadow">
-          <div class="card__background--wrapper">
-            <div class="card__background--main" style="background-image: url(./assets/hero-bg.jpg);" >
-              <div class="card__background--layer"></div>
-            </div>
+    <div class="blog-card__head">
+    </div>
+    <div class="blog-card__info">
+      <h2 class="tm-color-primary">Iratkozz fel hírlevelemre!</h2>
+      <p>Ne maradj le az aktuális tennivalókról, tippekről, a Kiskert-M történéseiről és a feliratkozóknak járó akciókról, iratkozz fel hírlevelemre most!<br>
+        &nbsp;</p>
+      <a href="#" class="btn btn--with-icon" data-toggle="modal" data-target="#myModal"><i class="btn-icon fa fa-long-arrow-right"></i>FELIRATKOZOM</a>
+    </div>
+  </article>
+</div>
+</div>
+</div>
+
+<section class="tm-section pt-2 pb-3">
+  <div class="container">
+      <div class="row">
+          <div class="col-xl-4 col-lg-4 tm-flex-center-v tm-section-left">
+              <header>
+                <h2 class="tm-color-primary">Nagy Petra Mercédesz vagyok, a Kiskert-M vegyszermentes termelője.</h2>
+                <p>Vidékfejlesztési agrármérnökként és dísznövénykertészként végeztem. Tanulmányaim hatására
+                  találtam rá az utamra, ami amellett, hogy értéket teremt vásárlóim számára, óvja és gyarapítja
+                  környezetünket.</p>
+              </header>
           </div>
+          <div class="col-xl-8 col-lg-8 tm-circle-img-container tm-contact-right">
+              <img src="./assets/bem1.jpg" alt="Image" class="rounded-circle tm-circle-img shadow">
+          </div>
+      </div>
+  </div>
+</section>
+<section id="tm-section-4" class="tm-section tm-section-4">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 tm-section-2-right">
+            <div class="tm-bg-circle-white tm-bg-circle-pad-2 tm-flex-center-v shadow">
+                <header>
+                  <p>Kertem 100%-ban vegyszer- és műtrágyamentes, a palántáktól a zöldségeken át a virágokig, minden.
+                    Törekszem a fenntarthatóságra, aminek része, hogy a környezetemben található „gaznövényeket” és
+                    a letermett haszonnövényeket is újrahasznosítom a kert gyarapítása érdekében.</p>
+                    <p>
+                      Célom, hogy az ökológiai gazdálkodás alapelvei mentén egy olyan gazdaságot hozzak létre, ami 40-50
+    környékbeli családot képes ellátni állandó jelleggel szezonális terménnyel.
+                    </p>
+                </header>
+                
+                
+            </div>
         </div>
-        <div class="blog-card__head">
-          <!-- <span class="date__box">
-            <span class="date__day">11</span>
-            <span class="date__month">JAN</span>
-          </span> -->
-        </div>
-        <div class="blog-card__info">
-          <h2>Rendelj palántát tőlem...</h2>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque vero libero voluptatibus earum? Alias dignissimos quo cum, nulla esse facere atque, blanditiis doloribus at sunt quas, repellendus vel? Et, hic!</p>
-          <a href="#" class="btn btn--with-icon"><i class="btn-icon fa fa-long-arrow-right"></i>ÉRDEKEL</a>
-        </div>
-      </article>
     </div>
+</div>
+</section>
+<section class="tm-section pt-2 pb-3">
+<div class="container">
+  <div class="row">
+      <div class="col-xl-4 col-lg-4 tm-flex-center-v tm-section-left">
+          <header>
+            <p>Rohanó életünkben fontosnak tartom, hogy megtanuljunk minél több időt szeretteinkre, magunkra
+              és kikapcsolódásra, feltöltődésre fordítani, ezért a zöldségdobozok házhozszállításával szeretném
+              megkönnyíteni ezt vásárlóim számára.</p>
+          </header>
+      </div>
+      <div class="col-xl-8 col-lg-8 tm-circle-img-container tm-contact-right">
+          <img src="./assets/bem51.jpg" alt="Image" class="rounded-circle tm-circle-img shadow">
+      </div>
   </div>
 </div>
+</section>
+<section id="tm-section-5" class="tm-section tm-section-5">
+<div class="container">
+  <div class="row">
+      <div class="col-sm-12 tm-section-2-right">
+          <div class="tm-bg-circle-white tm-bg-circle-pad-2 tm-flex-center-v shadow">
+              <header>
+              
+              </header>
+              <p>Közösségi felületeimen igyekszem minél többet átadni a tudásomból, közelebb hozni az embereket a
+                természet és a kert szeretetéhez, emellett folyamatosan informálom a követőimet a kert
+                történéseiről. Fontos számomra, hogy vásárlóimnak lehetősége legyen látni, honnan jön az, ami az
+                asztalukra kerül, ezért kertem előzetes egyeztetés után személyesen is meglátogatható.</p>
+          </div>
+      </div>
+  </div>
+</div>
+</section>

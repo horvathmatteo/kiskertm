@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { faFacebook, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faFacebook, faInstagram, faYoutube,  } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 import { FirebaseService } from '../firebase.service';
 
 
@@ -17,6 +17,7 @@ export class FooterComponent implements OnInit {
   youtubeIcon = faYoutube;
   emailIcon = faEnvelope;
   phoneIcon = faPhone;
+  locationIcon = faMapMarkerAlt;
 
   subscribeData: any = <any>{};
 
