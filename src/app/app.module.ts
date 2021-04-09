@@ -24,6 +24,17 @@ import { PlantDetailsComponent } from './components/plant-details/plant-details.
 import { PlantListComponent } from './components/plant-list/plant-list.component';
 import { PlantsviewComponent } from './plantsview/plantsview.component';
 import { OrderComponent } from './order/order.component';
+import { RichTextEditorModule } from '@syncfusion/ej2-angular-richtexteditor';
+import { BlogComponent } from './blog/blog.component';
+import { BlogpostComponent, SafeHtmlPipe } from './blogpost/blogpost.component';
+import { AddPostComponent } from './components/add-post/add-post.component';
+import { DatePipe } from '@angular/common';
+import localeHu from '@angular/common/locales/hu';
+import { registerLocaleData } from '@angular/common';
+import { PostListComponent } from './components/post-list/post-list.component';
+import { PostDetailsComponent } from './components/post-details/post-details.component';
+
+registerLocaleData(localeHu, 'hu');
 
 const routes: Routes = [
 
@@ -41,7 +52,13 @@ const routes: Routes = [
     PlantDetailsComponent,
     PlantListComponent,
     PlantsviewComponent,
-    OrderComponent
+    OrderComponent,
+    BlogComponent,
+    BlogpostComponent,
+    AddPostComponent,
+    PostListComponent,
+    PostDetailsComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,
@@ -57,6 +74,7 @@ const routes: Routes = [
     MDBBootstrapModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    RichTextEditorModule
   ],
   providers: [
     {
@@ -65,7 +83,8 @@ const routes: Routes = [
       {
         window.location.href = (route.data as any).externalUrl;
       }
-    }
+    },
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

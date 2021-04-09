@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, NavigationEnd, Router } from '@angular/router';
+import { BlogComponent } from './blog/blog.component';
+import { BlogpostComponent } from './blogpost/blogpost.component';
 import { AddPlantComponent } from './components/add-plant/add-plant.component';
+import { AddPostComponent } from './components/add-post/add-post.component';
 import { PlantListComponent } from './components/plant-list/plant-list.component';
+import { PostListComponent } from './components/post-list/post-list.component';
 import { HomeComponent } from './home/home.component';
 import { NewsletterComponent } from './newsletter/newsletter.component';
 import { OrderComponent } from './order/order.component';
@@ -21,16 +25,28 @@ const routes: Routes = [
     component: VegetableBoxComponent
   },
   {
-    path: 'newsletter',
-    component: NewsletterComponent
+    path: 'blog',
+    component: BlogComponent
+  },
+  {
+    path: 'blog/:id',
+    component: BlogpostComponent
   },
   {
     path: 'api/plant/add',
     component: AddPlantComponent
   },
   {
+    path: 'api/post/add',
+    component: AddPostComponent
+  },
+  {
     path: 'api/plant/plants',
     component: PlantListComponent
+  },
+  {
+    path: 'api/post/posts',
+    component: PostListComponent
   },
   {
     path: 'plants',

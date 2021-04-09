@@ -28,6 +28,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@syncfusion/ej2-angular-richtexteditor": "^19.1.55",
     "@types/chart.js": "^2.9.30",
     "angular-bootstrap-md": "^10.1.1",
     "animate.css": "^4.1.1",
