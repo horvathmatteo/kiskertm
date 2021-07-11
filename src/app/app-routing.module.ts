@@ -7,10 +7,12 @@ import { AddPostComponent } from './components/add-post/add-post.component';
 import { PlantListComponent } from './components/plant-list/plant-list.component';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { HomeComponent } from './home/home.component';
+import { KamraComponent } from './kamra/kamra.component';
 import { NewsletterComponent } from './newsletter/newsletter.component';
 import { OrderComponent } from './order/order.component';
 import { PlantsviewComponent } from './plantsview/plantsview.component';
 import { VegetableBoxComponent } from './vegetable-box/vegetable-box.component';
+import { VegetablesComponent } from './vegetables/vegetables.component';
 
 const routes: Routes = [
   { path: 'home',
@@ -51,6 +53,14 @@ const routes: Routes = [
   {
     path: 'plants',
     component: PlantsviewComponent
+  },
+  {
+    path: 'vegetables',
+    component: VegetablesComponent
+  },
+  {
+    path: 'kamra',
+    component: KamraComponent
   },
   { path: '',
     redirectTo: '/home',

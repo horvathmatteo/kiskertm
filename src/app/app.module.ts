@@ -33,6 +33,8 @@ import localeHu from '@angular/common/locales/hu';
 import { registerLocaleData } from '@angular/common';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
+import { VegetablesComponent } from './vegetables/vegetables.component';
+import { KamraComponent } from './kamra/kamra.component';
 
 registerLocaleData(localeHu, 'hu');
 
@@ -58,7 +60,9 @@ const routes: Routes = [
     AddPostComponent,
     PostListComponent,
     PostDetailsComponent,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    VegetablesComponent,
+    KamraComponent
   ],
   imports: [
     BrowserModule,
