@@ -6,7 +6,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
     <div class="container">
       <a class="navbar-brand" routerLink='/home'>
-            <img class="logo" src="assets/logo.png" alt="">
+            <img class="logo" src="assets/logo-web.png" alt="">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarCollapse"
        aria-expanded="false" aria-label="Toggle navigation">
@@ -19,17 +19,15 @@
             </a>
           </li>
           <li class="nav-item dropdown">  
-            <a class="nav-link dropdown-toggle" routerLinkActive="active" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Foglalható palánták</a>
+            <a class="nav-link dropdown-toggle" routerLinkActive="active" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kamra</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" routerLink="/plants" routerLinkActive="active"  [queryParams]="{ category: 'összes'}">Összes</a>
-              <a class="dropdown-item" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'paprika'}">Paprika</a>
-              <a class="dropdown-item" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'paradicsom'}">Paradicsom</a>
-              <a class="dropdown-item" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'tökfélék'}">Tökfélék</a>
-              <a class="dropdown-item" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'káposztafélék'}">Káposztafélék</a>
-              <a class="dropdown-item" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'saláták'}">Saláták</a>
-              <a class="dropdown-item" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'uborka'}">Uborka</a>
-              <a class="dropdown-item" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'fűszerek'}">Fűszerek</a>
-              <a class="dropdown-item" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'egyéb'}">Egyéb</a>
+              <a class="dropdown-item" routerLink="/kamra" routerLinkActive="active"  [queryParams]="{ category: 'összes'}">Összes</a>
+              <a class="dropdown-item" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'lekvár'}">Lekvárok</a>
+              <a class="dropdown-item" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'szörp'}">Szörpök</a>
+              <a class="dropdown-item" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'ivólé'}">Ivólevek</a>
+              <a class="dropdown-item" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'szárítottfűszerek'}">Száritott fűszerek</a>
+              <a class="dropdown-item" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'zöldségkrémek'}">Zöldségkrémek</a>
+              <a class="dropdown-item" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'egyéb'}">Egyéb</a>
             </div>
           </li>
           <li class="nav-item">

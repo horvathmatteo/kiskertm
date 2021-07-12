@@ -1,0 +1,27 @@
+<div class="margin container-fluid mt-3 mx-auto" >
+    <div class="card-group">
+        <div class="col col-md-4 mt-4"  *ngFor="let kamra of categoryKamra;">
+            <div class="card profile-card-5 shadow">
+                <div class="card-img-block">
+                    <img class="card-img-top" src="{{kamra.img}}" alt="Card image cap">
+                </div>
+                <div class="card-body pt-0">
+                    <h4 class="card-title">{{kamra.title}}</h4>
+                    <p class="bold"><b class="bold">Összetevők:</b></p>
+                    <p class="card-text">{{kamra.description}}</p>
+                    <p class="card-text"><b class="bold">Kiszerelés:</b> {{kamra.ml}}</p>
+                </div>
+                <div class="card-footer">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <td><strong>Ár:</strong></td>
+                                    <td style="text-align: right;"><strong> {{kamra.price}} Ft/db</strong></td>
+                                </tr>
+                            </table>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

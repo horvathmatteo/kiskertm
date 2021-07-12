@@ -35,6 +35,10 @@ import { PostListComponent } from './components/post-list/post-list.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
 import { VegetablesComponent } from './vegetables/vegetables.component';
 import { KamraComponent } from './kamra/kamra.component';
+import { AddKamraComponent } from './components/add-kamra/add-kamra.component';
+import { KamraDetailsComponent } from './components/kamra-details/kamra-details.component';
+import { KamraListComponent } from './components/kamra-list/kamra-list.component';
+import { KamraviewComponent } from './kamraview/kamraview.component';
 
 registerLocaleData(localeHu, 'hu');
 
@@ -62,7 +66,11 @@ const routes: Routes = [
     PostDetailsComponent,
     SafeHtmlPipe,
     VegetablesComponent,
-    KamraComponent
+    KamraComponent,
+    AddKamraComponent,
+    KamraDetailsComponent,
+    KamraListComponent,
+    KamraviewComponent
   ],
   imports: [
     BrowserModule,
