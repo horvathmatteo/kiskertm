@@ -1,5 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
 
+
+.order {
+	font-family: 'Montserrat';
+	font-weight: 500;
+	background-color: #6ab42f;
+	color: white;
+	height: 20vh;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	text-align: center;
+}
 .hidden {
 	display: none
 }

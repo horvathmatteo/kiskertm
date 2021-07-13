@@ -271,7 +271,7 @@ focim {
   
   .tm-section-1 {
 	height: 750px;
-	background-image: url(../../assets/vegbox22.jpg);
+	background-image: url(../../assets/kamra11.jpg);
 	background-size: cover;
 	-webkit-clip-path: polygon(0px 0px, 100% 0px, 100% 84%, 0px 100%);
 	clip-path: polygon(0px 0px, 100% 0px, 100% 84%, 0px 100%);
@@ -282,7 +282,7 @@ focim {
   
   .tm-section-3 {
 	height: 790px;
-	background-image: url(../../assets/vegbox22.jpg);
+	background-image: url(../../assets/kamra33.jpg);
 	background-size: cover;
 	-webkit-clip-path: polygon(0px 0px, 100% 14%, 100% 86%, 0px 100%);
 	clip-path: polygon(0px 0px, 100% 14%, 100% 86%, 0px 100%);
@@ -297,7 +297,7 @@ focim {
 
   .tm-section-4 {
 	height: 790px;
-	background-image: url(../../assets/vegbox55.jpg);
+	background-image: url(../../assets/kamra55.jpg);
 	background-size: cover;
 	-webkit-clip-path: polygon(0px 0px, 100% 14%, 100% 86%, 0px 100%);
 	clip-path: polygon(0px 0px, 100% 14%, 100% 86%, 0px 100%);
@@ -308,7 +308,7 @@ focim {
 
   .tm-section-5 {
 	height: 790px;
-	background-image: url(../../assets/vegbox77.jpg);
+	background-image: url(../../assets/kamra55.jpg);
 	background-size: cover;
 	-webkit-clip-path: polygon(0px 0px, 100% 14%, 100% 86%, 0px 100%);
 	clip-path: polygon(0px 0px, 100% 14%, 100% 86%, 0px 100%);
@@ -543,8 +543,8 @@ focim {
   .hiszen {
 	  text-align: center;
 	  font-family: 'Montserrat';
-    font-weight: 500;
-	  font-size: medium;
+      font-weight: 500;
+	  font-size: large;
   }
 
   .font {
@@ -558,15 +558,13 @@ focim {
   }
 
   .order {
+    background-color: #6ab42f;
     font-family: 'Montserrat';
-	  font-weight: 500;
-  	background-color: #6ab42f;
-	  color: white;
-	  height: 20vh;
-  	display: flex;
-  	justify-content: center;
-  	align-items: center;
-  	text-align: center;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+    height: 40px;
   }
 
   .szallitas {
@@ -576,3 +574,10 @@ focim {
     
   }
   
+  .kamra {
+      font-size: 40px;
+  }
+
+  .mentes {
+      color: #cc0064;
+  }

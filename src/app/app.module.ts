@@ -39,6 +39,7 @@ import { AddKamraComponent } from './components/add-kamra/add-kamra.component';
 import { KamraDetailsComponent } from './components/kamra-details/kamra-details.component';
 import { KamraListComponent } from './components/kamra-list/kamra-list.component';
 import { KamraviewComponent } from './kamraview/kamraview.component';
+import { JamOrderComponent } from './jam-order/jam-order.component';
 
 registerLocaleData(localeHu, 'hu');
 
@@ -70,7 +71,8 @@ const routes: Routes = [
     AddKamraComponent,
     KamraDetailsComponent,
     KamraListComponent,
-    KamraviewComponent
+    KamraviewComponent,
+    JamOrderComponent
   ],
   imports: [
     BrowserModule,

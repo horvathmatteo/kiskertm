@@ -9,6 +9,7 @@ import { KamraListComponent } from './components/kamra-list/kamra-list.component
 import { PlantListComponent } from './components/plant-list/plant-list.component';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { HomeComponent } from './home/home.component';
+import { JamOrderComponent } from './jam-order/jam-order.component';
 import { KamraComponent } from './kamra/kamra.component';
 import { KamraviewComponent } from './kamraview/kamraview.component';
 import { NewsletterComponent } from './newsletter/newsletter.component';
@@ -72,6 +73,10 @@ const routes: Routes = [
   {
     path: 'kamra',
     component: KamraviewComponent
+  },
+  {
+    path: 'kamra-order',
+    component: JamOrderComponent
   },
   { path: '',
     redirectTo: '/home',

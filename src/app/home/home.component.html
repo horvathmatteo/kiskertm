@@ -5,7 +5,7 @@
       <article class="blog-card">
         <div class="blog-card__background shadow border-secondary">
           <div class="card__background--wrapper">
-            <div class="card__background--main" style="background-image: url(./assets/kezdő2.jpg);">
+            <div class="card__background--main" style="background-image: url(./assets/fooldal1.png);">
               <div class="card__background--layer"></div>
             </div>
           </div>
@@ -13,11 +13,10 @@
         <div class="blog-card__head">
         </div>
         <div class="blog-card__info">
-          <h2 class="tm-color-primary">Foglalj most vegyszermentes palántát!</h2>
-          <p>Nézd meg palántáim széleskörű kínálatát és foglald le a számodra legmegfelelőbb fajtákat. Csak korlátozott mennyiségben
-            elérhetőek, foglalj most, hogy le ne maradj!
+          <h2 class="tm-color-primary">Töltsd fel Te is kamrád polcait!</h2>
+          <p>Nézd meg feldolgozott termékeim napról-napra bővülő kínálatát és töltsd meg kamrád polcait Kiskert-M termékekkel!
           </p>
-          <a href="#" [routerLink]="['/order']" class="btn btn--with-icon"><i class="btn-icon fa fa-long-arrow-right"></i>FOGLALOK</a>
+          <a href="#" [routerLink]="['/kamra']"  [queryParams]="{ category: 'összes'}" class="btn btn--with-icon"><i class="btn-icon fa fa-long-arrow-right"></i>SZÉTNÉZEK</a>
         </div>
       </article>
     </div>
@@ -30,7 +29,7 @@
       <article class="blog-card">
         <div class="blog-card__background shadow">
           <div class="card__background--wrapper">
-            <div class="card__background--main" style="background-image: url(./assets/k21.jpg);" >
+            <div class="card__background--main" style="background-image: url(./assets/fooldal2.png);" >
               <div class="card__background--layer"></div>
             </div>
           </div>
@@ -38,9 +37,9 @@
         <div class="blog-card__head">
 </div>
 <div class="blog-card__info">
-  <h2 class="tm-color-primary">Nézd meg, milyen palánták közül válogathatsz!</h2>
-  <p>Kattints a szétnézek gombra és böngéssz a majdnem 100 fajta palánta között. Ha kiválasztottad, melyikeket látnád szívesen a saját kertedben, add le palántarendelésedet gyorsan, amíg el nem fogy az erősen korlátozott készletem.</p>
-  <a href="#" class="btn btn--with-icon" [routerLink]="['/plants']" [queryParams]="{ category: 'összes'}"><i class="btn-icon fa fa-long-arrow-right"></i>SZÉTNÉZEK</a>
+  <h2 class="tm-color-primary">Biztosítsd be a heti zöldségadagod a Kiskert-M vegyszermentes zöldségdobozaival!</h2>
+  <p>Kattints a megnézem gombra és add le rendelésed a heti kínálatra!</p>
+  <a href="#" class="btn btn--with-icon" [routerLink]="['/vegetable-box']" ><i class="btn-icon fa fa-long-arrow-right"></i>MEGNÉZEM</a>
 </div>
 </article>
 </div>

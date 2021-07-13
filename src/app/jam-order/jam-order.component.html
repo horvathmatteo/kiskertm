@@ -1,0 +1,101 @@
+<div class="tm-container mx-auto mt-5">
+    <section class="tm-section tm-section-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="tm-bg-circle-white tm-flex-center-v shadow">
+                        <header class="text-center">
+                            <h1 class="tm-site-title kamra">Üresek a kamrád polcai?</h1>
+                            <p class="tm-site-subtitle">Télen is vágysz a tavasz és nyár gyümölcseire, zöldségeire, ízeire?</p>
+                        </header>
+                        <p class="hiszen">Szereted az egyszerűen előkapható finomságokat?</p>
+                        <p class="text-center mt-4 mb-0">
+                            
+                        </p>
+  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="tm-section-2" class="tm-section pt-2 pb-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 col-lg-6 tm-flex-center-v tm-text-container tm-section-left">
+                    <h2 class="mb-4 font">A kertemben található zöldségek és gyümölcsök egy részét feldolgozom, hogy ne csak azok szezonjában kápráztathassák el fogyasztójukat.</h2>
+                    <p class=" tm-color-secondary mb-4 font"><a [routerLink]="['/kamra']" [queryParams]="{ category: 'összes'}">Nézz szét</a>
+                         és válogass virtuális kamrám polcairól, ahol csak általam feldolgozott termékeket találsz. 
+                    </p>
+                    <p class="text-right mb-0">
+                        
+                    </p>
+                </div>
+                <div class="col-xl-7 col-lg-6 tm-circle-img-container">
+                    <img src="./assets/kamra22.jpg" alt="Image" class="rounded-circle tm-circle-img shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="tm-section-3" class="tm-section tm-section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 tm-section-2-right">
+                    <div class="tm-bg-circle-white tm-bg-circle-pad-2 tm-flex-center-v shadow">
+                        <p class="font">Törekszem arra, hogy minél természetesebbek és egészségesebbek legyenek a termékeim, ezért <b class="mentes">minden tartósítószer- és adalékanyagmentes</b>.
+                             Folyamatosan bővülő kínálatomban találsz többek közt lekvárokat, szörpöket, ivóleveket, zöldségkrémeket és szárított fűszereket. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="tm-section pt-2 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 tm-flex-center-v tm-section-left">
+                    <header>
+                      <p class="font">Érdemes rendszeresen visszalátogatnod, hogy ne maradj le a minden esetben limitált számú újdonságokról se! Ha biztosra szeretnél menni, iratkozz fel hírlevelemre, hogy az elsők között értesülhess kamrám polcainak bővüléséről.</p>
+                      <p class="font">Minden egyes Kiskert-M termék üvegéért, amit visszajuttatsz hozzám, a következő rendelésed alkalmával 50 forint kedvezményt kapsz.</p>
+                    </header>
+                </div>
+                <div class="col-xl-8 col-lg-8 tm-circle-img-container tm-contact-right">
+                    <img src="./assets/kamra44.png" alt="Image" class="rounded-circle tm-circle-img shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="tm-section-5" class="tm-section tm-section-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 tm-section-2-right">
+                    <div class="tm-bg-circle-white tm-bg-circle-pad-2 tm-flex-center-v shadow">
+                        <header>
+                            <h2 class="tm-color-primary">Hogyan tudok rendelni?</h2>
+                        </header>
+                        <p class="font">Rendelésedet leadhatod a Kiskert-M <a href="https://www.facebook.com/kiskert.m/">Facebook</a> vagy <a href="https://www.instagram.com/kiskert_m/">Instagram</a> oldalán privát üzenetben, a
+                            +36702314372 telefonszámon vagy az oldal alján található űrlap kitöltésével.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+  </div>
+  <div>
+    <div class="margin">
+        <h2 class="tm-color-primary text-center">Add le rendelésedet itt:</h2>
+        <form class="form-group mx-auto" [formGroup]="form" method="post" (ngSubmit)="onSubmit()">
+          <label for="name" class="font">Név</label>
+          <input type="text" class="form-control" id="name" [formControl]="name" required>
+          <label for="phone" class="font">Telefonszám</label>
+          <input type="text" class="form-control" id="phone" [formControl]="phone">
+          <label for="email" class="font">Email</label>
+          <input type="email" class="form-control" id="email" [formControl]="email" placeholder="email@example.com" required>
+          <label for="message" class="font">Rendelésed</label>
+          <textarea id="message" class="form-control" [formControl]="message"
+            placeholder="Ide írd rendelésed tartalmát..." required></textarea>
+          <button [disabled]="isLoading" class="btn btn-success" type="submit">Küldés</button>
+          <input [formControl]="honeypot" class="hidden" type="text" />
+          <div [ngClass]="!submitted? 'hidden' : 'visible'" class="center-text">
+            <span>{{responseMessage}}</span>
+          </div>
+        </form>
+      </div>
