@@ -1,99 +1,102 @@
 <head>
-  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/b584f9942ba804448f38a21c7/68528f8443efd56f64d71041b.js");</script>
+    <script id="mcjs">
+        ! function(c, h, i, m, p) {
+            m = c.createElement(h), p = c.getElementsByTagName(h)[0], m.async = 1, m.src = i, p.parentNode.insertBefore(m, p)
+        }(document, "script", "https://chimpstatic.com/mcjs-connected/js/users/b584f9942ba804448f38a21c7/68528f8443efd56f64d71041b.js");
+    </script>
 </head>
 
 <div class="menu">
-<nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
-    <div class="container">
-      <a class="navbar-brand" routerLink='/home'>
-            <img class="logo" src="assets/logo-web.png" alt="">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarCollapse"
-       aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+        <div class="container">
+            <a class="navbar-brand" routerLink='/home'>
+                <img class="logo" src="assets/logo-web.png" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/home" routerLinkActive="active">Kezdőlap
-            </a>
-          </li>
-          <li class="nav-item dropdown">  
-            <a class="nav-link dropdown-toggle" routerLinkActive="active" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kamra</a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" routerLink="/kamra" routerLinkActive="active"  [queryParams]="{ category: 'összes'}">Összes</a>
-              <a class="dropdown-item" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'lekvár'}">Lekvárok</a>
-              <a class="dropdown-item" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'szörp'}">Szörpök</a>
-              <a class="dropdown-item" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'ivólé'}">Ivólevek</a>
-              <a class="dropdown-item" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'szárítottfűszerek'}">Szárított fűszerek</a>
-              <a class="dropdown-item" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'zöldségkrémek'}">Zöldségkrémek</a>
-              <a class="dropdown-item" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'egyéb'}">Egyéb</a>
-              <a class="dropdown-item order" routerLink="/kamra-order" routerLinkActive="active">Rendelés</a>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <button class="btn nav-link" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/home" routerLinkActive="active">Kezdőlap
+                        </button>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <button class="btn nav-link dropdown-toggle" routerLinkActive="active" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Palánták</button>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'összes'}">Összes</a>
+                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'paprika'}">Paprika</a>
+                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'paradicsom'}">Paradicsom</a>
+                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'padlizsán'}">Padlizsán</a>
+                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'tökfélék'}">Tökfélék</a>
+                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'káposztafélék'}">Káposztafélék</a>
+                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'uborka'}">Uborka</a>
+                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'fűszerek'}">Fűszerek</a>
+                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'saláták'}">Saláták</a>
+                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'édesburgonya'}">Édesburgonya</a>
+                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'egyéb'}">Egyéb</a>
+                            <!-- <a class="dropdown-item order" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/kamra-order" routerLinkActive="active">Rendelés</a> -->
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn nav-link" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/order" routerLinkActive="active">Palántarendelés</button>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <button class="btn nav-link dropdown-toggle" routerLinkActive="active" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Kamra</button>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'összes'}">Összes</a>
+                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'lekvár'}">Lekvárok</a>
+                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'szörp'}">Szörpök</a>
+                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'ivólé'}">Ivólevek</a>
+                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'szárítottfűszerek'}">Szárított fűszerek</a>
+                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'zöldségkrémek'}">Zöldségkrémek</a>
+                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'egyéb'}">Egyéb</a>
+                            <!-- <a class="dropdown-item order" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/kamra-order" routerLinkActive="active">Rendelés</a> -->
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn nav-link" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/vegetable-box" routerLinkActive="active">Zöldségdoboz</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn nav-link" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/blog" routerLinkActive="active">Blog</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn nav-link position-relative" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/cart" routerLinkActive="active"><i class="material-icons arrow" style="font-size: 30px;">&#xe8cc;</i>
+                            <span *ngIf="counter != 0" class='badge badge-warning' id='lblCartCount'> {{counter}}</span>
+                            <!-- <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-2"><span class="visually-hidden"></span></span> -->
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-success" role="button" data-toggle="modal" data-target="#myModal" role="button" href="#">Hírlevél</button>
+                    </li>
+                </ul>
             </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/vegetable-box" routerLinkActive="active">Zöldségdoboz</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/order" routerLinkActive="active">Palántarendelés</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/blog" routerLinkActive="active">Blog</a>
-          </li>
-          <li class="nav-item">
-            <button class="btn btn-outline-success" role="button" data-toggle="modal" data-target="#myModal" role="button" href="#">Hírlevél</button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+        </div>
+    </nav>
 </div>
-  <!-- <div id="myModal" class="modal fade">
-    <div class="modal-dialog modal-newsletter">
-      <div class="modal-content">
-        <form >
-          <div class="modal-header">
-            <h4>Iratkozz fel a hírlevélre!</h4>	
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>&times;</span></button>
-          </div>
-          <div class="modal-body">					
-            <p>Signup for our weekly newsletter to get the latest news, updates and amazing offers delivered directly in your inbox.</p>
-            <div class="input-group">
-              <input type="email" class="form-control" placeholder="Add meg az email címed" required>
-              <span class="input-group-btn">
-                <input type="submit" class="btn btn-primary" value="Feliratkozom">
-              </span>
-            </div>
-          </div>
-        </form>			
-      </div>
-    </div>
-  </div> -->
 
-  <div id="myModal" class="modal fade">
+<div id="myModal" class="modal fade">
     <div class="modal-dialog modal-newsletter">
-      <div class="modal-content">
-        <form #subscribeForm='ngForm' (ngSubmit)='subscribe(subscribeForm)'>
-          <div class="modal-header">
-            <h4>Iratkozz fel a hírlevélre!</h4>	
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" #closebutton class="close"><span>&times;</span></button>
-          </div>
-          <div class="modal-body">					
-            <p>Ne maradj le az aktuális tennivalókról, tippekről, a Kiskert-M történéseiről és a feliratkozóknak járó akciókról, iratkozz fel hírlevelemre most!</p>
-            <div class="input-group">
-              <input type="email" class="form-control" placeholder="Add meg az email címed" NgModel pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-              #email='ngModel' name='email'
-                [(ngModel)]='subscribeData.email' required>
-              <span class="input-group-btn">
+        <div class="modal-content">
+            <form #subscribeForm='ngForm' (ngSubmit)='subscribe(subscribeForm)'>
+                <div class="modal-header">
+                    <h4>Iratkozz fel a hírlevélre!</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" #closebutton class="close"><span>&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>Ne maradj le az aktuális tennivalókról, tippekről, a Kiskert-M történéseiről és a feliratkozóknak járó akciókról, iratkozz fel hírlevelemre most!</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Add meg az email címed" NgModel pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" #email='ngModel' name='email' [(ngModel)]='subscribeData.email' required>
+                        <span class="input-group-btn">
                 <input type="submit" class="btn btn-primary" value="Feliratkozom">
               </span>
-            </div>
-            <div *ngIf="email.errors && (email.invalid || email.touched)">
-              <small class="text-danger" *ngIf="email.errors?.required">Email megadása kötelező</small>
-              <small class="text-danger" *ngIf="email.errors?.pattern">Kérlek valós címet adj meg</small>
-          </div>
-          </div>
-        </form>			
-      </div>
+                    </div>
+                    <div *ngIf="email.errors && (email.invalid || email.touched)">
+                        <small class="text-danger" *ngIf="email.errors?.required">Email megadása kötelező</small>
+                        <small class="text-danger" *ngIf="email.errors?.pattern">Kérlek valós címet adj meg</small>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="backdrop"></div>
+<!-- <div class="alert-box">
+    {{message}}
+    <div class="alert-box-actions text-right">
+        <button type="button" class='btn btn-primary' (click)="onCloseClick()">Close</button>
+    </div>
+</div> -->
+
+<!-- Modal HTML success -->
+<div id="myModal2" *ngIf="type == 'success'" class="modal d-flex justify-content-center" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="icon-box success">
+                    <i class="material-icons">&#xe5ca;</i>
+                </div>
+                <h4 class="modal-title w-100">{{title}}</h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-center">{{message}}</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success btn-block" (click)="onCloseClick()">Bezárás</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal HTML error -->
+<div id="myModal2" *ngIf="type == 'error'" class="modal d-flex justify-content-center" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="icon-box error">
+                    <i class="material-icons">&#xe5cd;</i>
+                </div>
+                <h4 class="modal-title w-100">{{title}}</h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-center">{{message}}</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger btn-block" (click)="onCloseClick()">Bezárás</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal HTML info -->
+<div id="myModal2" *ngIf="type == 'info'" class="modal d-flex justify-content-center" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="icon-box info">
+                    <i class="material-icons">&#xe88e;</i>
+                </div>
+                <h4 class="modal-title w-100">{{title}}</h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-center">{{message}}</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-info btn-block" (click)="onCloseClick()">Bezárás</button>
+            </div>
+        </div>
+    </div>
+</div>

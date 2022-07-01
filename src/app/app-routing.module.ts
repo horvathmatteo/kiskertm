@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, NavigationEnd, Router } from '@angular/router';
 import { BlogComponent } from './blog/blog.component';
 import { BlogpostComponent } from './blogpost/blogpost.component';
+import { CartComponent } from './cart/cart.component';
 import { AddKamraComponent } from './components/add-kamra/add-kamra.component';
 import { AddPlantComponent } from './components/add-plant/add-plant.component';
 import { AddPostComponent } from './components/add-post/add-post.component';
@@ -15,6 +16,7 @@ import { KamraviewComponent } from './kamraview/kamraview.component';
 import { NewsletterComponent } from './newsletter/newsletter.component';
 import { OrderComponent } from './order/order.component';
 import { PlantsviewComponent } from './plantsview/plantsview.component';
+import { PopupComponent } from './shared/popup/popup.component';
 import { VegetableBoxComponent } from './vegetable-box/vegetable-box.component';
 import { VegetablesComponent } from './vegetables/vegetables.component';
 
@@ -77,6 +79,14 @@ const routes: Routes = [
   {
     path: 'kamra-order',
     component: JamOrderComponent
+  },
+  {
+    path: 'cart',
+    component: CartComponent
+  },
+  {
+    path: 'popup',
+    component: PopupComponent
   },
   { path: '',
     redirectTo: '/home',

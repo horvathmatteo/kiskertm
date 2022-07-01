@@ -1,0 +1,271 @@
+<div class="title">Kosár</div>
+<div class="steps-form">
+    <div class="steps-row setup-panel">
+        <div class="steps-step">
+            <button type="button" class="btn btn-succes btn-circle done" disabled="disabled">1</button>
+            <p>Kosár</p>
+        </div>
+        <div class="steps-step">
+            <button type="button" [ngClass]="{'done': step==2 || step==3}" class="btn btn-success btn-circle" disabled="disabled">2</button>
+            <p>Szállítás</p>
+        </div>
+        <div class="steps-step">
+            <button type="button" [ngClass]="{'done': step==3}" class="btn btn-success btn-circle" disabled="disabled">3</button>
+            <p>Adatok</p>
+        </div>
+    </div>
+</div>
+<app-popup [message]="message" [title]="title" [type]="type" *ngIf="error" (close)="error = false;"></app-popup>
+<div class="container">
+    <div class="row">
+        <aside class="col-lg-9">
+            <section *ngIf="step == 1">
+                <div class="spacer">
+                    <div class="container">
+                        <div class="row mt-5 center">
+                            <div class="col-lg-12">
+                                <div class="row shop-listing table-responsive">
+                                    <table class="table shop-table">
+                                        <tr>
+                                            <th class="b-0"></th>
+                                            <th class="b-0">Termék</th>
+                                            <th class="b-0">Egységár</th>
+                                            <th class="b-0">Mennyiség</th>
+                                            <th class="b-0 text-right">Összeg</th>
+                                            <th class="b-0"></th>
+                                        </tr>
+                                        <ng-template [ngIf]="items.length != 0" [ngIfElse]="empty">
+                                            <tr *ngFor="let item of items">
+                                                <td><img src="{{item.img}}" alt="image" width="80"></td>
+                                                <td style="vertical-align: middle;">{{ item.species}}</td>
+                                                <td style="vertical-align: middle;">{{ (item.price_one | currency:'HUF':'':'1.0')!.replace(',','.') }} Ft</td>
+                                                <td style="vertical-align: middle;">
+                                                    <input type="number" [(ngModel)]="item.quantity" (change)="onChange(item.id)" min="1" />
+                                                </td>
+                                                <td class="text-right" style="vertical-align: middle;">
+                                                    {{ (item.total | currency:'HUF':'':'1.0')!.replace(',','.') }} Ft
+                                                </td>
+                                                <td style="vertical-align: middle;">
+                                                    <button class="close_button" (click)="emptyCart(item.id)">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </ng-template>
+                                        <ng-template #empty>
+                                            <tr>
+                                                <td colspan="6" class="text-center" style="font-size: large;">A kosarad még üres, válassz valamit a termékeim közül...</td>
+                                            </tr>
+                                        </ng-template>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section *ngIf="step == 2">
+                <div class="spacer">
+                    <div class="container">
+                        <div class="row mt-2 center">
+                            <div class="col-lg-12">
+
+                                <div class="frb-group">
+                                    <div class="frb frb-success">
+                                        <input type="radio" id="radio-button-1" name="radio-button" [(ngModel)]="shipping" value="1" (change)="changeSubTotal()">
+                                        <label for="radio-button-1">
+                                <span class="frb-title">Személyes átvétel</span><br>
+                                <span class="frb-description">A megrendelt termékeket lehetőséged van díjmentesen személyesen is átvenni.</span>
+                            </label>
+                                    </div>
+                                    <div class="frb frb-success">
+                                        <input type="radio" id="radio-button-6" name="radio-button" [(ngModel)]="shipping" value="2" (change)="changeSubTotal()">
+                                        <label for="radio-button-6">
+                                <span class="frb-title">Hódmezővásárhelyen belül (300ft/cím):</span><br>
+                                <span class="frb-description">Hódmezővásárhely - Kishomok</span>
+                            </label>
+                                    </div>
+                                    <div class="frb frb-success">
+                                        <input type="radio" id="radio-button-2" name="radio-button" [(ngModel)]="shipping" value="3" (change)="changeSubTotal()">
+                                        <label for="radio-button-2">
+                                <span class="frb-title">1. szállítási útvonal (500ft/cím):</span><br>
+                                <span class="frb-description"> Algyő – Szeged – Újszeged – Deszk – Klárafalva – Kiszombor – Makó – Óföldeák – Földeák</span>
+                                <span class="frb-description"> Mártély – Mindszent – Baks – Csanytelek – Ópusztaszer – Kistelek – Balástya – Sándorfalva</span>
+                                <span class="frb-description"> Székkutas – Kakasszék – Orosháza – Nagymágocs – Szentes – Derekegyház</span>
+
+                            </label>
+                                    </div>
+
+                                    <div class="frb frb-success">
+                                        <input type="radio" id="radio-button-3" name="radio-button" [(ngModel)]="shipping" value="4" (change)="changeSubTotal()">
+                                        <label for="radio-button-3">
+                                <span class="frb-title">2. szállítási útvonal (800ft/cím): </span><br>
+                                <span class="frb-description">Csongrád - Tiszaalpár - Nyárlőrinc - Lakitelek - Kecskemét - Lajosmizse - Nagykőrös - Cegléd</span>
+                            </label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section *ngIf="step == 3">
+                <div class="spacer">
+                    <div class="container">
+                        <div class="row mt-5 center">
+                            <div class="col-lg-12">
+
+                                <form [formGroup]="profileForm">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="vezetek">Vezetéknév</label>
+                                            <input type="text" class="form-control" [ngClass]="{'red-border': profileForm.controls['vezetek'].errors && profileForm.controls['vezetek'].touched}" id="vezetek" formControlName="vezetek">
+                                            <div *ngIf="profileForm.controls['vezetek'].invalid && (profileForm.controls['vezetek'].dirty || profileForm.controls['vezetek'].touched)" class="alert">
+                                                <div *ngIf="profileForm.controls['vezetek'].errors?.required">
+                                                    Kérlek add meg a vezetékneved
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="kereszt">Keresztnév</label>
+                                            <input type="text" class="form-control" [ngClass]="{'red-border': profileForm.controls['kereszt'].errors && profileForm.controls['kereszt'].touched}" id="kereszt" formControlName="kereszt">
+                                            <div *ngIf="profileForm.controls['kereszt'].invalid && (profileForm.controls['kereszt'].dirty || profileForm.controls['kereszt'].touched)" class="alert">
+                                                <div *ngIf="profileForm.controls['kereszt'].errors?.required">
+                                                    Kérlek add meg a keresztneved
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email cím</label>
+                                        <input type="email" class="form-control" [ngClass]="{'red-border': profileForm.controls['email'].errors && profileForm.controls['email'].touched}" id="email" formControlName="email" aria-describedby="emailHelp" placeholder="Kérlek valós email címet adj meg">
+                                        <div *ngIf="profileForm.controls['email'].invalid && (profileForm.controls['email'].dirty || profileForm.controls['email'].touched)" class="alert">
+                                            <div *ngIf="profileForm.controls['email'].errors?.required">
+                                                Kérlek add meg az email címed
+                                            </div>
+                                            <div *ngIf="profileForm.controls['email'].errors?.email">
+                                                Email cím nem megfelelő
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Telefonszám</label>
+                                        <input type="text" class="form-control" [ngClass]="{'red-border': profileForm.controls['phone'].errors && profileForm.controls['phone'].touched}" id="phone" formControlName="phone">
+                                        <div *ngIf="profileForm.controls['phone'].invalid && (profileForm.controls['phone'].dirty || profileForm.controls['phone'].touched)" class="alert">
+                                            <div *ngIf="profileForm.controls['phone'].errors?.required">
+                                                Kérlek add meg a telefonszámod
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-2">
+                                            <label for="zip">Irányítószám</label>
+                                            <input type="text" class="form-control" [ngClass]="{'red-border': profileForm.controls['zip'].errors && profileForm.controls['zip'].touched}" id="zip" formControlName="zip">
+                                            <div *ngIf="profileForm.controls['zip'].invalid && (profileForm.controls['zip'].dirty || profileForm.controls['zip'].touched)" class="alert">
+                                                <div *ngIf="profileForm.controls['zip'].errors?.required">
+                                                    Kérlek add meg az irányítószámod
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="city">Település</label>
+                                            <input type="text" class="form-control" [ngClass]="{'red-border': profileForm.controls['city'].errors && profileForm.controls['city'].touched}" id="phone" formControlName="city">
+                                            <div *ngIf="profileForm.controls['city'].invalid && (profileForm.controls['city'].dirty || profileForm.controls['city'].touched)" class="alert">
+                                                <div *ngIf="profileForm.controls['city'].errors?.required">
+                                                    Kérlek add meg a települést
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-8">
+                                            <label for="address">Utca,házszám</label>
+                                            <input type="text" class="form-control" [ngClass]="{'red-border': profileForm.controls['address'].errors && profileForm.controls['address'].touched}" id="address" formControlName="address">
+                                            <div *ngIf="profileForm.controls['address'].invalid && (profileForm.controls['address'].dirty || profileForm.controls['address'].touched)" class="alert">
+                                                <div *ngIf="profileForm.controls['address'].errors?.required">
+                                                    Kérlek add meg a címedet
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="note">Megjegyzés</label>
+                                        <textarea class="form-control" id="note" formControlName="note"></textarea>
+                                    </div>
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="confirm" formControlName="confirm">
+                                        <label class="form-check-label" for="exampleCheck1">Jelöld be a rendelés megerősítéséhez</label>
+                                        <div *ngIf="profileForm.controls['confirm'].invalid && (profileForm.controls['confirm'].dirty || profileForm.controls['confirm'].touched)" class="alert">
+                                            <div *ngIf="profileForm.controls['confirm'].errors?.required">
+                                                Kérlek erősítsd meg a megrendelésedet
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="d-flex justify-content-center mt-3">
+                <a (click)="back()"><i class="material-icons arrow">&#xe408;</i><span class="arrow2">előző</span></a>
+                <div class="pagination-wrapper mt-2">
+                    <div class="pagination">
+                        <span [ngClass]="{'active': step == 1}"></span>
+                        <span [ngClass]="{'active': step == 2}"></span>
+                        <span [ngClass]="{'active': step == 3}"></span>
+                    </div>
+                </div>
+                <a (click)="next()">
+                    <span class="arrow2">következő</span><i class="material-icons arrow">&#xe409;</i></a>
+            </div>
+        </aside>
+        <aside class="col-lg-3">
+            <div class="card mt-5 mb-3">
+                <div class="card-body">
+                    <form *ngIf="!valid">
+                        <div class="form-group"> <label>Van kuponkódod?</label>
+                            <div class="input-group"> <input type="text" id="coupon" class="form-control coupon" name="" placeholder="Kuponkód" [(ngModel)]="couponInput" [ngModelOptions]="{standalone: true}"> <span class="input-group-append"> <button class="btn btn-primary btn-apply coupon" (click)="checkCode()">Beváltom</button> </span>                                </div>
+                        </div>
+                    </form>
+                    <span *ngIf="valid" class="coupon-valid">Sikeresen felhasználtad a kuponkódot.</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <dl class="dlist-align" *ngIf="discount != 0 || shipping != 1 && shipping != 0">
+                        <dt>Összeg:</dt>
+                        <dd class="text-right ml-3">{{(originalTotal | currency:'HUF':'':'1.0')!.replace(',','.')}} Ft</dd>
+                    </dl>
+                    <dl class="dlist-align" *ngIf="discount != 0">
+                        <dt>Kedvezmény ({{discount}}%):</dt>
+                        <dd class="text-right text-danger ml-3">- {{(minus | currency:'HUF':'':'1.0')!.replace(',','.')}} Ft</dd>
+                    </dl>
+                    <dl class="dlist-align" *ngIf="shipping != 1 && shipping != 0">
+                        <dt>Szállítás:</dt>
+                        <dd class="text-right text-dark b ml-3">+ {{(shippingCost | currency:'HUF':'':'1.0')!.replace(',','.')}} Ft</dd>
+                    </dl>
+                    <dl class="dlist-align">
+                        <dt>Összesen:</dt>
+                        <dd class="text-right text-dark b ml-3"><strong>{{ (subtotal | currency:'HUF':'':'1.0')!.replace(',','.') }} Ft</strong></dd>
+                    </dl>
+                    <hr> <a *ngIf="step == 3" class="btn btn-out btn-primary btn-square btn-main text-light" data-abc="true" (click)="sendEmail()"> Megrendelem </a> <a routerLink="/plants" [queryParams]="{ category: 'összes'}" class="btn btn-out btn-success btn-square btn-main mt-2"
+                        data-abc="true">Folytatom a vásárlást</a>
+                </div>
+            </div>
+
+        </aside>
+    </div>
+</div>
+
+<div id="overlay">
+    <div class="container d-flex h-100 justify-content-center">
+        <div class="row justify-content-center align-self-center">
+            <div class="spinner-border" style="width: 5rem; height: 5rem; color: white;" role="status">
+                <span class="sr-only">Megrendelés elküldése folyamatban...</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -18,7 +18,6 @@ export class PlantDetailsComponent implements OnInit, OnChanges {
     description: '',
     price_one: undefined,
     price_two: undefined,
-    published: false
   };
   message = '';
 
@@ -35,9 +34,9 @@ export class PlantDetailsComponent implements OnInit, OnChanges {
 
   updatePublished(status: boolean): void {
     if (this.currentPlant.id) {
-      this.plantService.update(this.currentPlant.id, { published: status})
+      this.plantService.update(this.currentPlant.id, { available: status})
       .then(() => {
-        this.currentPlant.published = status;
+        this.currentPlant.available = status;
         this.message = 'The status was updated successfully';
       })
       .catch(err => console.log(err));
@@ -51,7 +50,7 @@ export class PlantDetailsComponent implements OnInit, OnChanges {
       species: this.currentPlant.species,
       description: this.currentPlant.description,
       price_one: this.currentPlant.price_one,
-      price_two: this.currentPlant.price_two,
+      total: this.currentPlant.price_one
     };
 
     if(this.currentPlant.id) {

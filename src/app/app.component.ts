@@ -22,5 +22,6 @@ export class AppComponent {
         })
       }
     });
+    sessionStorage.setItem('counter', JSON.stringify(0));
   }
 }

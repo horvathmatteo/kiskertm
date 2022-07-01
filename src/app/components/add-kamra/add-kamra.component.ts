@@ -18,6 +18,8 @@ export class AddKamraComponent implements OnInit {
   }
 
   saveKamra(): void {
+    this.kamra.quantity = 1;
+    this.kamra.total = this.kamra.price;
     this.kamraService.create(this.kamra).then(() => {
       console.log('Created successfully');
       this.submitted = true;

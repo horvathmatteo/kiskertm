@@ -11,7 +11,7 @@ export class AddPlantComponent implements OnInit {
 
   plant: Plant = new Plant();
   submitted = false;
-  categories = ['paprika', 'paradicsom', 'káposztafélék', 'tökfélék', 'saláták', 'uborka', 'fűszerek', 'egyéb'];
+  categories = ['paprika', 'paradicsom', 'padlizsán', 'káposztafélék', 'tökfélék', 'saláták', 'uborka', 'fűszerek','édesburgonya', 'egyéb'];
 
   constructor(private plantService: KiskertmService) { }
 
@@ -19,6 +19,8 @@ export class AddPlantComponent implements OnInit {
   }
 
   savePlant(): void {
+    this.plant.quantity = 1;
+    this.plant.total = this.plant.price_one;
     this.plantService.create(this.plant).then(() => {
       console.log('Created successfully');
       this.submitted = true;

@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { Plant } from '../models/plant.model';
+import { CartService } from '../services/cart.service';
 import { KiskertmService } from '../services/kiskertm.service';
 
 @Component({
@@ -15,9 +16,14 @@ export class PlantsviewComponent implements OnInit, OnChanges {
   plants?: Plant[];
   category?: any;
   categoryPlants?: Plant[];
+  error = false;
+  message = "";
+  title="";
+  type="";
 
-  constructor(private plantService: KiskertmService, private route: ActivatedRoute, private title: Title) {
-    this.title.setTitle('Kiskert-M | Palánták')
+  constructor(private plantService: KiskertmService, private route: ActivatedRoute, private title2: Title,
+    private cartService: CartService) {
+    this.title2.setTitle('Kiskert-M | Palánták')
    }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -63,4 +69,19 @@ export class PlantsviewComponent implements OnInit, OnChanges {
     });
   }
 
+  addToCart(product: Plant) {
+    this.cartService.addToCart(product);
+    this.showPopUp("Siker!", "A termék sikeresen a kosaradba került", "success");
+    // var counter = parseInt(sessionStorage.getItem('counter')!);
+    // this.cartService.sendNumber(counter + 1);
+    // sessionStorage.setItem('counter', JSON.stringify(counter! + 1));
+  }
+
+  showPopUp(title: string, message: string, type: string) {
+    this.error = true;
+    this.message = message;
+    this.title = title;
+    this.type = type;
+    setTimeout(() => {this.error = false}, 2000);
+  }
 }

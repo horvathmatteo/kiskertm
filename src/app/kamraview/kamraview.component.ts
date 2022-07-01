@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Kamra } from '../models/kamra.model';
 import { KamraService } from '../services/kamra.service';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-kamraview',
@@ -15,9 +16,16 @@ export class KamraviewComponent implements OnInit {
   kamras?: Kamra[];
   category?: any;
   categoryKamra?: Kamra[];
+  isCollapsed = false;
+  inCart!: any[];
+  error = false;
+  message = "";
+  title="";
+  type="";
 
-  constructor(private kamraService: KamraService, private title: Title, private route: ActivatedRoute) { 
-    this.title.setTitle('Kiskert-M | Kamra');
+  constructor(private kamraService: KamraService, private titleServ: Title, private route: ActivatedRoute,
+    public cartService: CartService) { 
+    this.titleServ.setTitle('Kiskert-M | Kamra');
   }
 
   ngOnInit(): void {
@@ -27,7 +35,8 @@ export class KamraviewComponent implements OnInit {
       this.categoryKamra = [];
       this.category = params.category;
       this.retrieveKamra();
-    })
+      this.inCart = JSON.parse(sessionStorage.getItem('products')!);
+    });
   }
 
   retrieveKamra(): void {
@@ -58,5 +67,19 @@ export class KamraviewComponent implements OnInit {
       } 
     });
   }
+
+  addToCart(product: Kamra) {
+    this.cartService.addToCart(product);
+    this.showPopUp("Siker!", "A termék sikeresen a kosaradba került", "success");
+  }
+
+  showPopUp(title: string, message: string, type: string) {
+    this.error = true;
+    this.message = message;
+    this.title = title;
+    this.type = type;
+    setTimeout(() => {this.error = false}, 2000);
+  }
+
 
 }

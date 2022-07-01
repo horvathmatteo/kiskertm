@@ -6,5 +6,7 @@ export class Plant {
     description?: string;
     price_one?: number;
     price_two?: number;
-    published?: boolean 
+    available?: boolean;
+    quantity?: number;
+    total?: number;
 }

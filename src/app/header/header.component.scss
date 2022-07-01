@@ -1,14 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
-
-.nav-item{
-    padding:2px;
+.nav-item {
+    padding: 2px;
     margin-left: 7px;
-    color: #fff !important; 
+    color: #fff !important;
 }
 
 .order {
     background-color: #6ab42f !important;
-    color:white !important;
+    color: white !important;
 }
 
 .dropdown-item {
@@ -34,7 +33,7 @@
 }
 
 .navbar {
-    background-color:  white !important;
+    background-color: white !important;
     margin-left: auto;
     margin-right: auto;
     border-radius: 3px;
@@ -47,28 +46,32 @@
     height: auto;
 }
 
-.modal-newsletter {	
+.modal-newsletter {
     color: #999;
     width: auto;
     font-size: 15px;
     margin: 30px auto;
 }
+
 .modal-newsletter .modal-content {
     padding: 30px;
-    border-radius: 0;		
+    border-radius: 0;
     border: none;
 }
+
 .modal-newsletter .modal-header {
-    border-bottom: none;   
+    border-bottom: none;
     position: relative;
     border-radius: 0;
 }
+
 .modal-newsletter h4 {
     color: #000;
     font-size: 30px;
     margin: 0;
     font-weight: bold;
 }
+
 .modal-newsletter .close {
     position: absolute;
     top: -15px;
@@ -77,32 +80,40 @@
     opacity: 0.3;
     font-size: 24px;
 }
+
 .modal-newsletter .close:hover {
     opacity: 0.8;
 }
+
 .modal-newsletter .icon-box {
-    color: #7265ea;		
+    color: #7265ea;
     display: inline-block;
     z-index: 9;
     text-align: center;
     position: relative;
     margin-bottom: 10px;
 }
+
 .modal-newsletter .icon-box i {
     font-size: 110px;
 }
-.modal-newsletter .form-control, .modal-newsletter .btn {
+
+.modal-newsletter .form-control,
+.modal-newsletter .btn {
     min-height: 46px;
     border-radius: 0;
 }
+
 .modal-newsletter .form-control {
     box-shadow: none;
     border-color: #dbdbdb;
 }
+
 .modal-newsletter .form-control:focus {
     border-color: #f95858;
     box-shadow: 0 0 8px rgba(249, 88, 88, 0.4);
 }
+
 .modal-newsletter .btn {
     color: #fff;
     background: #8ac55a;
@@ -114,14 +125,18 @@
     margin-left: 6px !important;
     border: none;
 }
-.modal-newsletter .btn:hover, .modal-newsletter .btn:focus {
+
+.modal-newsletter .btn:hover,
+.modal-newsletter .btn:focus {
     box-shadow: 0 0 8px rgba(249, 88, 88, 0.4);
     background: #6ab42f;
     outline: none;
 }
+
 .modal-newsletter .input-group {
     margin-top: 30px;
 }
+
 .hint-text {
     margin: 100px auto;
     text-align: center;
@@ -141,7 +156,35 @@
     font-size: 20px;
 }
 
- .dropdown-item.active {
+.dropdown-item.active {
     color: #000;
     background-color: #fff;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; // remove the gap so it doesn't close
+}
+
+//badge design
+.badge {
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+    background-color: #c67605;
+}
+
+#lblCartCount {
+    font-size: 12px;
+    background: #ff0000;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: -10px;
 }

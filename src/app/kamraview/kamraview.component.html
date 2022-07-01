@@ -1,6 +1,7 @@
-<div class="margin container-fluid mt-3 mx-auto" >
+<app-popup [message]="message" [title]="title" [type]="type" *ngIf="error" (close)="error = false;"></app-popup>
+<div class="margin container-fluid mt-3 mx-auto">
     <div class="card-group">
-        <div class="col col-md-4 mt-4"  *ngFor="let kamra of categoryKamra;">
+        <div class="col col-md-4 mt-4" *ngFor="let kamra of categoryKamra;">
             <div class="card profile-card-5 shadow">
                 <div class="card-img-block">
                     <img class="card-img-top" src="{{kamra.img}}" alt="Card image cap">
@@ -12,14 +13,17 @@
                     <p class="card-text"><b class="bold">Kiszerelés:</b> {{kamra.ml}}</p>
                 </div>
                 <div class="card-footer">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <tr>
-                                    <td><strong>Ár:</strong></td>
-                                    <td style="text-align: right;"><strong> {{kamra.price}} Ft/db</strong></td>
-                                </tr>
-                            </table>
-                        </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <!-- <td><strong>Ár:</strong></td> -->
+                                <td style="text-align: center;" class="price-tag"><strong> {{(kamra.price | currency:'HUF':'':'1.0')!.replace(',','.')}} Ft/db</strong></td>
+                                <td style="text-align: right;">
+                                    <button disabled data-dismiss="alert" class="btn btn-primary rounded-pill" (click)="addToCart(kamra)"><span class="tocart"><i class="material-icons">&#xe854;</i>áprilisig zárva</span></button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

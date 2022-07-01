@@ -6,5 +6,7 @@ export class Kamra {
     description?: string;
     ml?: string;
     price?: number;
-    published?: boolean 
+    published?: boolean;
+    quantity?: number;
+    total?: number;
 }

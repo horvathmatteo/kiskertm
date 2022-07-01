@@ -13,6 +13,7 @@ import { VegetableBoxComponent } from './vegetable-box/vegetable-box.component';
 import { NewsletterComponent } from './newsletter/newsletter.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -40,6 +41,9 @@ import { KamraDetailsComponent } from './components/kamra-details/kamra-details.
 import { KamraListComponent } from './components/kamra-list/kamra-list.component';
 import { KamraviewComponent } from './kamraview/kamraview.component';
 import { JamOrderComponent } from './jam-order/jam-order.component';
+import { CartComponent } from './cart/cart.component';
+import { PopupComponent } from './shared/popup/popup.component';
+import { AlertComponent } from './shared/alert/alert.component';
 
 registerLocaleData(localeHu, 'hu');
 
@@ -72,7 +76,10 @@ const routes: Routes = [
     KamraDetailsComponent,
     KamraListComponent,
     KamraviewComponent,
-    JamOrderComponent
+    JamOrderComponent,
+    CartComponent,
+    PopupComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -88,6 +95,7 @@ const routes: Routes = [
     MDBBootstrapModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireFunctionsModule,
     RichTextEditorModule
   ],
   providers: [
