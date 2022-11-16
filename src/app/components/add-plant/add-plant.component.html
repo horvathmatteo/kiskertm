@@ -1,0 +1,52 @@
+<div class="submit-form">
+    <div *ngIf="!submitted">
+        <div class="form-group">
+            <label for="categorí">Kategória:</label>
+            <select class="form-control" id="category" required [(ngModel)]="plant.category" name="category">
+                <option value="paprika">paprika</option>
+                <option value="paradicsom">paradicsom</option>
+                <option value="padlizsán">padlizsán</option>
+                <option value="tökfélék">tökfélék</option>
+                <option value="káposztafélék">káposztafélék</option>
+                <option value="uborka">uborka</option>
+                <option value="fűszerek">fűszerek</option>
+                <option value="saláták">saláták</option>
+                <option value="édesburgonya">édesburgonya</option>
+                <option value="egyéb">egyéb</option>
+            </select>
+            <!-- <input type="text" class="form-control" id="category" required [(ngModel)]="plant.category" name="category" /> -->
+        </div>
+
+        <div class="form-group">
+            <label for="url">Képe URL:</label>
+            <input type="text" class="form-control" id="url" required [(ngModel)]="plant.img" name="url" />
+        </div>
+
+        <div class="form-group">
+            <label for="title">Fajta:</label>
+            <input type="text" class="form-control" id="species" required [(ngModel)]="plant.species" name="species" />
+        </div>
+
+        <div class="form-group">
+            <label for="description">Leírás:</label>
+            <input type="text" class="form-control" id="description" required [(ngModel)]="plant.description" name="description" />
+        </div>
+
+        <div class="form-group">
+            <label for="price_one">Cserepes ár:</label>
+            <input type="number" class="form-control" id="price_one" [(ngModel)]="plant.price_one" name="price_one" />
+        </div>
+
+        <div class="form-group">
+            <label for="price_two">Földkockás ár:</label>
+            <input type="number" class="form-control" id="price_two" [(ngModel)]="plant.price_two" name="price_two" />
+        </div>
+
+        <button (click)="savePlant()" class="btn btn-success">Mentés</button>
+    </div>
+
+    <div *ngIf="submitted">
+        <h4>You submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newPlant()">Új</button>
+    </div>
+</div>

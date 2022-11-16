@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
+
+footer a.text-light:hover { 
+    color: #fed136!important;
+    text-decoration: none;
+}
+
+footer .cizgi {
+    border-right: 1px solid #535e67; 
+}
+
+@media (max-width: 992px) { footer .cizgi { border-right: none; } }
+
+.container {
+    background-color: #6ab42f;
+}
+
+.card {
+    background-color: #6ab42f;
+}
+
+.card-body {
+    background-color: #6ab42f;
+}
+
+footer {
+    background-color: #6ab42f !important;
+    font-family: 'Montserrat' !important;
+    font-weight: 500 !important;
+}
+
+.jumbtron {
+    background-color: transparent !important;
+}
+
+.bg-secondary {
+    background-color: #6ab42f;
+}
+
+button {
+    background-color: transparent;
+    border-radius: 40%;
+    border: none;
+
+}
+
+.sub {
+    font-family: 'Montserrat' !important;
+    font-weight: 500 !important;
+}
+
+

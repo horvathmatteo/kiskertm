@@ -1,0 +1,59 @@
+<div *ngIf="currentKamra" class="edit-form">
+    <h4>Termék</h4>
+    <form>
+        <div class="form-group">
+            <label for="category">Kép url</label>
+            <input type="text" class="form-control" id="img" [(ngModel)]="currentKamra.img" name="img" />
+        </div>
+        <div class="form-group">
+            <label for="category">Kategória</label>
+            <input type="text" class="form-control" id="category" [(ngModel)]="currentKamra.category" name="category" />
+        </div>
+        <div class="form-group">
+            <label for="species">Termék</label>
+            <input type="text" class="form-control" id="title" [(ngModel)]="currentKamra.title"
+                name="title" />
+        </div>
+        <div class="form-group">
+            <label for="description">Leírás</label>
+            <input type="text" class="form-control" id="description" [(ngModel)]="currentKamra.description"
+                name="description" />
+        </div>
+        <div class="form-group">
+            <label for="description">Kiszerelés</label>
+            <input type="text" class="form-control" id="ml" [(ngModel)]="currentKamra.ml"
+                name="ml" />
+        </div>
+        <div class="form-group">
+            <label for="price_one">Ár</label>
+            <input type="text" class="form-control" id="price" [(ngModel)]="currentKamra.price"
+                name="price" />
+        </div>
+
+        <div class="form-group">
+            <label><strong>Status:</strong></label>
+            {{ currentKamra.published ? "Published" : "Pending" }}
+        </div>
+    </form>
+
+    <button class="badge badge-primary mr-2" *ngIf="currentKamra.published" (click)="updatePublished(false)">
+        UnPublish
+    </button>
+    <button *ngIf="!currentKamra.published" class="badge badge-primary mr-2" (click)="updatePublished(true)">
+        Publish
+    </button>
+
+    <button class="badge badge-danger mr-2" (click)="deleteKamra()">
+        Delete
+    </button>
+
+    <button type="submit" class="badge badge-success" (click)="updateKamra()">
+        Update
+    </button>
+    <p>{{ message }}</p>
+</div>
+
+<div *ngIf="!currentKamra">
+    <br />
+    <p>Cannot access this Tutorial...</p>
+</div>

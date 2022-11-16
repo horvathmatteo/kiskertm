@@ -1,0 +1,44 @@
+<app-popup [message]="message" [title]="title" [type]="type" *ngIf="error" (close)="error = false;"></app-popup>
+<div class="margin container-fluid mt-3 mx-auto">
+    <div class="card-group">
+        <div class="col col-md-4 mt-4" *ngFor="let plant of categoryPlants;">
+            <div class="card profile-card-5 shadow">
+                <div class="card-img-block">
+                    <img class="card-img-top" src="{{plant.img}}" alt="Card image cap">
+                </div>
+                <div class="card-body pt-0">
+                    <h4 class="card-title">{{plant.species}}</h4>
+                    <p class="card-text">{{plant.description}}</p>
+                </div>
+                <div class="card-footer">
+                    <ng-container *ngIf="plant.price_two">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <td><strong>Cserepes ár:</strong></td>
+                                    <td style="text-align: right;"><strong>{{plant.price_one}} Ft/db</strong> </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Földkockás ár:</strong></td>
+                                    <td style="text-align: right;"><strong> {{plant.price_two}} Ft/db</strong></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="!plant.price_two">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <td style="text-align: right;" class="price-tag"><strong> {{(plant.price_one | currency:'HUF':'':'1.0')!.replace(',','.')}} Ft/db</strong></td>
+                                    <td style="text-align: right;">
+                                        <button data-dismiss="alert" class="btn btn-primary rounded-pill" (click)="addToCart(plant)" disabled><span class="tocart"><i class="material-icons">&#xe854;</i>A rendelés lezárult</span></button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

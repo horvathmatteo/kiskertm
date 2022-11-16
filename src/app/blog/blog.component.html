@@ -1,0 +1,35 @@
+<header class="mt-5 mx-auto">
+    <h1 class="mt-4 cim">Legújabb bejegyzéseim</h1>
+</header>
+<div class="band" *ngIf="!isEmpty; else other_template">
+    <div class="item-1" *ngIf="latestPost">
+        <a [routerLink]="['/blog', latestPost.id]" class="card">
+            <div class="thumb" style="background-image: url({{latestPost.image}});"></div>
+            <article>
+                <h1>{{latestPost.title}}</h1>
+                <p>{{latestPost.description}}</p>
+                <span *ngIf="latestPost.createdAt !== today && latestPost.createdAt !== yesterdayString">{{latestPost.createdAt}}</span>
+                <span *ngIf="latestPost.createdAt == today">Ma</span>
+                <span *ngIf="latestPost.createdAt == yesterdayString">Tegnap</span>
+            </article>
+        </a>
+    </div>
+    <div class="item-2" *ngFor="let post of posts">
+        <a [routerLink]="['/blog', post.id]" class="card">
+            <div class="thumb" style="background-image: url({{post.image}});"></div>
+            <article>
+                <h1>{{ post.title }}</h1>
+                <p>{{ post.description }}</p>
+                <span *ngIf="post.createdAt !== today && post.createdAt !== yesterdayString">{{post.createdAt}}</span>
+                <span *ngIf="post.createdAt == today">Ma</span>
+                <span *ngIf="post.createdAt == yesterdayString">Tegnap</span>
+            </article>
+        </a>
+    </div>
+</div>
+
+<ng-template #other_template>
+    <div class="container-fluid ham">
+        Hamarosan...
+    </div>
+</ng-template>

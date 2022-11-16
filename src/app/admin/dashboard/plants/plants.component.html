@@ -1,0 +1,50 @@
+<div class="title">Palánták</div>
+<div class="toolbar mt-5 mb-0 mx-5">
+    <div class="container">
+        <div class="row">
+            <div class="input-group mb-3 col-md">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Kategória</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="category" (ngModelChange)="filterByCategory(category)">
+                      <option selected>válassz kategóriát...</option>
+                      <option value="összes">összes</option>
+                      <option value="paprika">Paprika</option>
+                      <option value="paradicsom">Paradicsom</option>
+                      <option value="padlizsán">Padlizsán</option>
+                      <option value="tökfélék">Tökfélék</option>
+                      <option value="káposztafélék">Káposztafélék</option>
+                      <option value="uborka">Uborka</option>
+                      <option value="fűszerek">Fűszerek</option>
+                      <option value="saláták">Saláták</option>
+                      <option value="édesburgonya">Édesburgonya</option>
+                      <option value="egyéb">Egyéb</option>
+                    </select>
+            </div>
+            <div class="input-group mb-3 col-md">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Rendezés</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="order" (ngModelChange)="orderBy(order)">
+                      <option selected>válassz...</option>
+                      <option value="nameInc">Név szerint növekvő</option>
+                      <option value="nameDec">Név szerint csökkenő</option>
+                      <option value="priceInc">Ár szerint növekvő</option>
+                      <option value="priceDec">Ár szerint csökkenő</option>
+                    </select>
+            </div>
+            <div class="input-group md-3 col-md">
+                <input class="form-control" list="datalistOptions" id="exampleDataList" [(ngModel)]="filterKeyword" placeholder="keresés..." (keyup)="autoComplete($event)">
+                <datalist id="datalistOptions">
+                    <option *ngFor="let item of suggestions" value="{{item.species}}">
+                </datalist>
+                <button class="btn btn-info input-group-append" (click)="applyFilter()">Keresés</button>
+            </div>
+        </div>
+    </div>
+</div>
+<app-card [items]="categoryPlants"></app-card>
+<app-add-dialog></app-add-dialog>
+<div class="floating-container">
+    <button type="button" class="floating-button" data-toggle="modal" data-target="#addModal">+</button>
+</div>

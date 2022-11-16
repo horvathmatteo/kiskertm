@@ -1,0 +1,21 @@
+<div class="list row">
+    <div class="col-md-6">
+        <h4>Palánták</h4>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let plant of plants; let i = index"
+                [class.active]="i == currentIndex" (click)="setActivePlant(plant, i)">
+                {{ plant.species }}
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <div *ngIf="currentPlant">
+            <app-plant-details (refreshList)="refreshList()" [plant]="currentPlant"></app-plant-details>
+        </div>
+
+        <div *ngIf="!currentPlant">
+            <br />
+            <p>Please click on a Tutorial...</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+<div *ngIf='currentPost' class="top mx-4">
+    <div [innerHTML]="currentPost.content | safeHtml" class="e-rte-content"></div>
+</div>
+​

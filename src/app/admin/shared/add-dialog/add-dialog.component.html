@@ -1,0 +1,145 @@
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <!-- <form *ngIf="isPlant(currentItem)">
+                    <div class="form-group">
+                        <label for="category">Kép url</label>
+                        <input type="text" class="form-control" id="img" [(ngModel)]="currentItem.img" name="img" />
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Kategória</label>
+                        <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="currentItem.category" name="category">
+                            <option value="paprika" [selected]="'paprika' == currentItem.category">Paprika</option>
+                            <option value="paradicsom" [selected]="'paradicsom' == currentItem.category">Paradicsom</option>
+                            <option value="padlizsán" [selected]="'padlizsán' == currentItem.category">Padlizsán</option>
+                            <option value="tökfélék" [selected]="'tökfélék' == currentItem.category">Tökfélék</option>
+                            <option value="káposztafélék" [selected]="'káposztafélék' == currentItem.category">Káposztafélék</option>
+                            <option value="uborka" [selected]="'uborka' == currentItem.category">Uborka</option>
+                            <option value="fűszerek" [selected]="'fűszerek' == currentItem.category">Fűszerek</option>
+                            <option value="saláták" [selected]="'saláták' == currentItem.category">Saláták</option>
+                            <option value="édesburgonya" [selected]="'édesburgonya' == currentItem.category">Édesburgonya</option>
+                            <option value="egyéb" [selected]="'egyéb' == currentItem.category">Egyéb</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="species">Fajta</label>
+                        <input type="text" class="form-control" id="species" [(ngModel)]="currentItem.species" name="species" />
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Leírás</label>
+                        <textarea type="text" class="form-control" id="description" [(ngModel)]="currentItem.description" name="description" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="price_one">Ár</label>
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" id="price_one" [(ngModel)]="currentItem.price_one" name="price_one" />
+                            <div class="input-group-append">
+                                <span class="input-group-text">Ft/db</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="stock">Készlet:</label>
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" id="stock" [(ngModel)]="currentItem.stock" name="stock" />
+                            <div class="input-group-append">
+                                <span class="input-group-text">db</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="mb-2">Státusz</div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="true" (change)="setAvailable($event)" [checked]="currentItem.available">
+                            <label class="form-check-label" for="inlineRadio1">Elérhető</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="false" (change)="setAvailable($event)" [checked]="!currentItem.available">
+                            <label class="form-check-label" for="inlineRadio2">Nincs készleten</label>
+                        </div>
+                    </div>
+                </form> -->
+
+                <form>
+                    <div class="form-group">
+                        <input type="file" class="text-nowrap text-truncate" (change)="selectFile($event)" />
+
+                        <button class="btn btn-success btn-sm" [disabled]="!selectedFiles" (click)="upload()">
+                        Kép feltöltése
+                        </button>
+                        <div *ngIf="currentFileUpload" class="progress mt-2">
+                            <div class="progress-bar progress-bar-info" role="progressbar" attr.aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: percentage + '%' }">
+                                {{ percentage }}%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Kép url</label>
+                        <input type="text" class="form-control" id="img" [(ngModel)]="currentItem.img" name="img" />
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Kategória</label>
+                        <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="currentItem.category" name="category">
+                            <option value="lekvár" [selected]="'lekvár' == currentItem.category">Lekvár</option>
+                            <option value="szörp" [selected]="'szörp' == currentItem.category">Szörp</option>
+                            <option value="ivólé" [selected]="'ivólé' == currentItem.category">Ivólé</option>
+                            <option value="szárítottfűszerek" [selected]="'szárítottfűszerek' == currentItem.category">Szárított fűszer</option>
+                            <option value="zöldségkrémek" [selected]="'zöldségkrémek' == currentItem.category">Zöldségkrém</option>
+                            <option value="egyéb" [selected]="'egyéb' == currentItem.category">Egyéb</option>
+                        </select> </div>
+                    <div class="form-group">
+                        <label for="species">Név</label>
+                        <input type="text" class="form-control" id="species" [(ngModel)]="currentItem.title" name="species" />
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Leírás</label>
+                        <textarea type="text" class="form-control" id="description" [(ngModel)]="currentItem.description" name="description" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Ár</label>
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" id="price" [(ngModel)]="currentItem.price" name="price" />
+                            <div class="input-group-append">
+                                <span class="input-group-text">Ft/db</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="species">Űrtartalom</label>
+                        <input type="text" class="form-control" id="species" [(ngModel)]="currentItem.ml" name="species" />
+                    </div>
+                    <div class="form-group">
+                        <label for="stock">Készlet:</label>
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" id="stock" [(ngModel)]="currentItem.stock" name="stock" />
+                            <div class="input-group-append">
+                                <span class="input-group-text">db</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="mb-2">Státusz</div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="true" (change)="setAvailable($event)" [checked]="currentItem.available">
+                            <label class="form-check-label" for="inlineRadio1">Elérhető</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="false" (change)="setAvailable($event)" [checked]="!currentItem.available">
+                            <label class="form-check-label" for="inlineRadio2">Nincs készleten</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="saveItem()">Mentés</button>
+            </div>
+        </div>
+    </div>
+</div>
+<app-popup [message]="message" [title]="title" [type]="type" *ngIf="error" (close)="error = false;"></app-popup>

@@ -1,0 +1,21 @@
+<div class="list row">
+    <div class="col-md-6">
+        <h4>Palánták</h4>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let kamra of kamras; let i = index"
+                [class.active]="i == currentIndex" (click)="setActiveKamra(kamra, i)">
+                {{ kamra.title }}
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <div *ngIf="currentKamra">
+            <app-kamra-details (refreshList)="refreshList()" [kamra]="currentKamra"></app-kamra-details>
+        </div>
+
+        <div *ngIf="!currentKamra">
+            <br />
+            <p>Please click on a Tutorial...</p>
+        </div>
+    </div>
+</div>

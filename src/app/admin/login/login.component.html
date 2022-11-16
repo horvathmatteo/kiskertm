@@ -1,0 +1,28 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="./assets/logo-web.png" id="icon" alt="User Icon" />
+        </div>
+
+        <!-- Login Form -->
+        <form [formGroup]="loginForm">
+            <input type="text" id="login" class="fadeIn second" name="login" formControlName="email" placeholder="email">
+            <input type="password" id="password" class="fadeIn third" name="login" formControlName="password" placeholder="jelszó">
+            <input type="button" class="fadeIn fourth" value="Bejelentkezés" (click)="signIn()">
+        </form>
+    </div>
+</div>
+
+<app-popup [message]="message" [title]="title" [type]="type" *ngIf="error" (close)="error = false;"></app-popup>
+
+<div id="overlay">
+    <div class="container d-flex h-100 justify-content-center">
+        <div class="row justify-content-center align-self-center">
+            <div class="spinner-border" style="width: 5rem; height: 5rem; color: white;" role="status">
+            </div>
+        </div>
+    </div>
+</div>
