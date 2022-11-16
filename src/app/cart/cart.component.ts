@@ -3,7 +3,7 @@ import { CartService } from '../services/cart.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { DatePipe } from '@angular/common';
-import { Router } from '@angular/router';
+import { KamraService } from '../services/kamra.service';
 
 @Component({
   selector: 'app-cart',
@@ -25,10 +25,8 @@ export class CartComponent implements OnInit{
   });
   destinations: Map<number, number> = new Map([
     [1, 0],
-    [2, 300],
-    [3, 500],
-    [4, 800],
-    
+    [2, 500],
+    [3, 800],
   ]);
   selectedOption = 0;
   couponInput = "";
@@ -44,10 +42,10 @@ export class CartComponent implements OnInit{
   message = "";
   title="";
   type="";
-  couponCode="VISSZATERTEM10";
+  couponCode="VISSZATERTEM7";
   isEverythingOK = true;
 
-  constructor(private cartService: CartService, private func: AngularFireFunctions, private datepipe: DatePipe, private router: Router) {
+  constructor(private cartService: CartService, private func: AngularFireFunctions, private datepipe: DatePipe, private kamraService: KamraService) {
   }
 
   ngOnInit(): void {
@@ -74,7 +72,7 @@ export class CartComponent implements OnInit{
 
   onChange(id: any) {
     var item = this.items.find(el => el.id === id);
-    item!.total = item!.price_one! * item!.quantity!;
+    item!.total = item!.price! * item!.quantity!;
     this.changeSubTotal();
     var index = this.items.indexOf(item);
     this.items[index] = item;
@@ -99,33 +97,33 @@ export class CartComponent implements OnInit{
     if(this.discount != 0) {
       this.refreshDiscount(this.discount);
     }
-    if(this.shipping == 1) {
+    if(this.shipping == 1 || this.shipping == 2 || this.shipping == 3) {
       this.shippingCost = this.destinations.get(1)!;
       this.subtotal = this.subtotal;
     }
-    if(this.shipping == 2) {
+    if(this.shipping == 4) {
       this.shippingCost = this.destinations.get(2)!;
       this.subtotal = this.subtotal + this.shippingCost;
     }
-    if(this.shipping == 3) {
+    if(this.shipping == 5 || this.shipping == 6) {
       this.shippingCost = this.destinations.get(3)!;
       this.subtotal = this.subtotal + this.shippingCost;
     }
-    if(this.shipping == 4) {
-      this.shippingCost = this.destinations.get(4)!;
+    if(this.shipping == 7) {
+      this.shippingCost = this.destinations.get(1)!;
       this.subtotal = this.subtotal + this.shippingCost;
     }
   }
 
   checkCode() {
-    if(this.couponInput.toLowerCase() == "megtalaltam5" || this.couponInput.toLowerCase() === "feliratkoztam5") {
+    if(this.couponInput.toLowerCase() == "megtalaltam5" || this.couponInput.toLowerCase() === "feliratkoztam5" || this.couponInput.toLowerCase() === "oktober5") {
       this.discount = 5;
       this.refreshDiscount(5);
       this.valid = true;
       this.showPopUp("Siker!","Sikeresen felhasználtad a kuponkódot!","success");
-    }else if(this.couponInput.toLowerCase() === "visszatertem10" || this.couponInput.toLowerCase() === "idenisultetek10"){
-      this.discount = 10;
-      this.refreshDiscount(10);
+    }else if(this.couponInput.toLowerCase() === "visszatertem7"){
+      this.discount = 7;
+      this.refreshDiscount(7);
       this.valid = true;
       this.showPopUp("Siker!","Sikeresen felhasználtad a kuponkódot!","success");
     }else {
@@ -134,7 +132,7 @@ export class CartComponent implements OnInit{
   }
 
   refreshDiscount(disc: number) {
-    this.minus = this.originalTotal * (disc / 100);
+    this.minus = Math.round(this.originalTotal * (disc / 100));
     this.subtotal = this.subtotal - this.minus;
   }
 
@@ -175,12 +173,35 @@ export class CartComponent implements OnInit{
       this.showPopUp("Szállítási mód kiválasztása", "Nem választottál szállítási módot", "error");
       this.isEverythingOK = false;
     }
-
-    this.profileForm.markAllAsTouched();
-    if(this.profileForm.status == "INVALID") {
-      this.showPopUp("Hibás kitöltés", "Kérlek ellenőrizd, hogy mindent helyesen töltöttél-e ki", "error");
-      this.isEverythingOK = false;
+    if(this.shipping == 4 || this.shipping == 5 || this.shipping == 6 || this.shipping == 7) {
+      this.profileForm.markAllAsTouched();
+      if(this.profileForm.status == "INVALID") {
+        this.showPopUp("Hibás kitöltés", "Kérlek ellenőrizd, hogy mindent helyesen töltöttél-e ki", "error");
+        this.isEverythingOK = false;
+      }
+    }else {
+      this.profileForm.get("zip")?.clearValidators();
+      this.profileForm.get("zip")?.updateValueAndValidity();
+      this.profileForm.get("city")?.clearValidators();
+      this.profileForm.get("city")?.updateValueAndValidity();
+      this.profileForm.get("address")?.clearValidators();
+      this.profileForm.get("address")?.updateValueAndValidity();
+      this.profileForm.markAllAsTouched();
+      if(this.shipping == 1) {
+        this.profileForm.controls['zip'].setValue("Személyes átvétel Hódmezővásárhelyen");
+      }
+      if(this.shipping == 2) {
+        this.profileForm.controls['zip'].setValue("Személyes átvétel Szegeden");
+      }
+      if(this.shipping == 3) {
+        this.profileForm.controls['zip'].setValue("Személyes átvétel Szentesen");
+      }
+      if(this.profileForm.status == "INVALID") {
+        this.showPopUp("Hibás kitöltés", "Kérlek ellenőrizd, hogy mindent helyesen töltöttél-e ki", "error");
+        this.isEverythingOK = false;
+      }
     }
+
   }
 
   sendEmail() {
@@ -211,11 +232,18 @@ export class CartComponent implements OnInit{
           this.showSpinner(0);
           this.showPopUp("Sikeres rendelés", "Rendelésedet sikeresen megkaptam, hamarosan felveszem veled a kapcsolatot", "success");
           this.cartService.clearCart();
+          this.kamraService.decreaseStock(this.items);
         }else {
           this.showPopUp("Sikertelen megrendelés", "Valami hiba lépett fel a megrendelés elküldése során", "error");
         }
       });
     }
     this.isEverythingOK = true;
+    this.profileForm.get("zip")?.setValidators([Validators.required]);
+      this.profileForm.get("zip")?.updateValueAndValidity();
+      this.profileForm.get("city")?.setValidators([Validators.required]);
+      this.profileForm.get("city")?.updateValueAndValidity();
+      this.profileForm.get("address")?.setValidators([Validators.required]);
+      this.profileForm.get("address")?.updateValueAndValidity();
   }
 }

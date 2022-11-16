@@ -1,0 +1,41 @@
+<div class="margin container-fluid mt-3 mx-auto">
+    <div class="card-group">
+        <div class="col col-md-4 mt-4" *ngFor="let item of items;">
+            <div class="card profile-card-5 shadow">
+                <div class="card-img-block">
+                    <img class="card-img-top" src="{{item.img}}" alt="Card image cap">
+                </div>
+                <div class="card-body pt-0">
+                    <h4 class="card-title">{{item.title}}</h4>
+                    <p class="card-text">{{item.description}}</p>
+                </div>
+                <div class="card-footer">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <td class="price-tag"><strong> {{(item.price | currency:'HUF':'':'1.0')!.replace(',','.')}} Ft/db</strong></td>
+                                <td class="price-tag" *ngIf="item.available">
+                                    <strong>Készlet: {{(item.stock | currency:'HUF':'':'1.0')?.replace(',','.')}} db </strong>
+                                </td>
+                                <td class="price-tag" *ngIf="!item.available">
+                                    <strong>Készlet:</strong> nincs készleten
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;">
+                                    <button type="button" class="btn btn-primary rounded-pill" data-toggle="modal" data-target="#exampleModal" (click)="setCurrentItem(item)">
+                                            Módosítás
+                                        </button>
+                                </td>
+                                <td style="text-align: center;">
+                                    <button data-dismiss="alert" class="btn btn-primary rounded-pill" (click)="delete(item)">Törlés</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-dialog [currentItem]="currentItem"></app-dialog>

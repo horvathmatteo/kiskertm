@@ -24,4 +24,12 @@ export class AppComponent {
     });
     sessionStorage.setItem('counter', JSON.stringify(0));
   }
+
+  public isAdminRoute(): boolean {
+    if(this.router.url.includes("/admin") || this.router.url.includes("/login")) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }

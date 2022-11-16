@@ -37,10 +37,11 @@
                                         <ng-template [ngIf]="items.length != 0" [ngIfElse]="empty">
                                             <tr *ngFor="let item of items">
                                                 <td><img src="{{item.img}}" alt="image" width="80"></td>
-                                                <td style="vertical-align: middle;">{{ item.species}}</td>
-                                                <td style="vertical-align: middle;">{{ (item.price_one | currency:'HUF':'':'1.0')!.replace(',','.') }} Ft</td>
+                                                <td style="vertical-align: middle;">{{ item.title}}</td>
+                                                <td style="vertical-align: middle;">{{ (item.price | currency:'HUF':'':'1.0')!.replace(',','.') }} Ft</td>
                                                 <td style="vertical-align: middle;">
-                                                    <input type="number" [(ngModel)]="item.quantity" (change)="onChange(item.id)" min="1" />
+                                                    <input type="number" [(ngModel)]="item.quantity" (change)="onChange(item.id)" min="1" [max]="item.stock" onkeydown="return false" />
+                                                    <span class="stock-cart">Elérhető: {{item.stock}} db</span>
                                                 </td>
                                                 <td class="text-right" style="vertical-align: middle;">
                                                     {{ (item.total | currency:'HUF':'':'1.0')!.replace(',','.') }} Ft
@@ -73,36 +74,54 @@
 
                                 <div class="frb-group">
                                     <div class="frb frb-success">
-                                        <input type="radio" id="radio-button-1" name="radio-button" [(ngModel)]="shipping" value="1" (change)="changeSubTotal()">
+                                        <input type="radio" id="radio-button-1" name="radio-button-1" [(ngModel)]="shipping" value="1" (change)="changeSubTotal()">
                                         <label for="radio-button-1">
-                                <span class="frb-title">Személyes átvétel</span><br>
-                                <span class="frb-description">A megrendelt termékeket lehetőséged van díjmentesen személyesen is átvenni.</span>
-                            </label>
+                                            <span class="frb-title">Személyesen veszem át Hódmezővásárhelyen (Klauzál
+                                                utca)</span><br>
+                                            <span class="frb-description">A megrendelt termékeket lehetőséged van
+                                                díjmentesen személyesen is átvenni.</span>
+                                        </label>
                                     </div>
                                     <div class="frb frb-success">
-                                        <input type="radio" id="radio-button-6" name="radio-button" [(ngModel)]="shipping" value="2" (change)="changeSubTotal()">
-                                        <label for="radio-button-6">
-                                <span class="frb-title">Hódmezővásárhelyen belül (300ft/cím):</span><br>
-                                <span class="frb-description">Hódmezővásárhely - Kishomok</span>
-                            </label>
-                                    </div>
-                                    <div class="frb frb-success">
-                                        <input type="radio" id="radio-button-2" name="radio-button" [(ngModel)]="shipping" value="3" (change)="changeSubTotal()">
+                                        <input type="radio" id="radio-button-2" name="radio-button-2" [(ngModel)]="shipping" value="2" (change)="changeSubTotal()">
                                         <label for="radio-button-2">
-                                <span class="frb-title">1. szállítási útvonal (500ft/cím):</span><br>
-                                <span class="frb-description"> Algyő – Szeged – Újszeged – Deszk – Klárafalva – Kiszombor – Makó – Óföldeák – Földeák</span>
-                                <span class="frb-description"> Mártély – Mindszent – Baks – Csanytelek – Ópusztaszer – Kistelek – Balástya – Sándorfalva</span>
-                                <span class="frb-description"> Székkutas – Kakasszék – Orosháza – Nagymágocs – Szentes – Derekegyház</span>
-
-                            </label>
+                                            <span class="frb-title">Személyesen veszem át Szegeden (Vértó)</span><br>
+                                            <span class="frb-description">A megrendelt termékeket lehetőséged van
+                                                díjmentesen személyesen is átvenni.</span>
+                                        </label>
                                     </div>
-
                                     <div class="frb frb-success">
-                                        <input type="radio" id="radio-button-3" name="radio-button" [(ngModel)]="shipping" value="4" (change)="changeSubTotal()">
+                                        <input type="radio" id="radio-button-3" name="radio-button-3" [(ngModel)]="shipping" value="3" (change)="changeSubTotal()">
                                         <label for="radio-button-3">
-                                <span class="frb-title">2. szállítási útvonal (800ft/cím): </span><br>
-                                <span class="frb-description">Csongrád - Tiszaalpár - Nyárlőrinc - Lakitelek - Kecskemét - Lajosmizse - Nagykőrös - Cegléd</span>
-                            </label>
+                                            <span class="frb-title">Személyesen veszem át Szentesen (Ady Endre utca)</span><br>
+                                            <span class="frb-description">A megrendelt termékeket lehetőséged van
+                                                díjmentesen személyesen is átvenni.</span>
+                                        </label>
+                                    </div>
+                                    <div class="frb frb-success">
+                                        <input type="radio" id="radio-button-4" name="radio-button-4" [(ngModel)]="shipping" value="4" (change)="changeSubTotal()">
+                                        <label for="radio-button-4">
+                                            <span class="frb-title">Kiszállítás Hódmezővásárhelyen belül (500ft/cím)</span><br>
+                                            <span class="frb-description">Hódmezővásárhely - Kishomok</span>
+                                        </label>
+                                    </div>
+                                    <div class="frb frb-success">
+                                        <input type="radio" id="radio-button-5" name="radio-button-5" [(ngModel)]="shipping" value="5" (change)="changeSubTotal()">
+                                        <label for="radio-button-5">
+                                            <span class="frb-title">Kiszállítás Szegeden belül (800ft/cím)</span><br>
+                                        </label>
+                                    </div>
+                                    <div class="frb frb-success">
+                                        <input type="radio" id="radio-button-6" name="radio-button-6" [(ngModel)]="shipping" value="6" (change)="changeSubTotal()">
+                                        <label for="radio-button-6">
+                                            <span class="frb-title">Kiszállítás Szentesen belül (800ft/cím)</span><br>
+                                        </label>
+                                    </div>
+                                    <div class="frb frb-success">
+                                        <input type="radio" id="radio-button-7" name="radio-button-7" [(ngModel)]="shipping" value="7" (change)="changeSubTotal()">
+                                        <label for="radio-button-7">
+                                            <span class="frb-title">Más településen lakom, beszéljük meg az átvételt</span><br>
+                                        </label>
                                     </div>
                                 </div>
 
@@ -160,7 +179,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-row">
+                                    <div class="form-row" *ngIf="shipping != 1 && shipping != 0 && shipping != 2 && shipping != 3 && shipping != 7">
                                         <div class="form-group col-md-2">
                                             <label for="zip">Irányítószám</label>
                                             <input type="text" class="form-control" [ngClass]="{'red-border': profileForm.controls['zip'].errors && profileForm.controls['zip'].touched}" id="zip" formControlName="zip">
@@ -195,7 +214,8 @@
                                     </div>
                                     <div class="form-group form-check">
                                         <input type="checkbox" class="form-check-input" id="confirm" formControlName="confirm">
-                                        <label class="form-check-label" for="exampleCheck1">Jelöld be a rendelés megerősítéséhez</label>
+                                        <label class="form-check-label" for="exampleCheck1">Jelöld be a rendelés
+                                            megerősítéséhez</label>
                                         <div *ngIf="profileForm.controls['confirm'].invalid && (profileForm.controls['confirm'].dirty || profileForm.controls['confirm'].touched)" class="alert">
                                             <div *ngIf="profileForm.controls['confirm'].errors?.required">
                                                 Kérlek erősítsd meg a megrendelésedet
@@ -209,7 +229,7 @@
                     </div>
                 </div>
             </section>
-            <div class="d-flex justify-content-center mt-3">
+            <div class="d-flex justify-content-center mt-3" *ngIf="items.length != 0">
                 <a (click)="back()"><i class="material-icons arrow">&#xe408;</i><span class="arrow2">előző</span></a>
                 <div class="pagination-wrapper mt-2">
                     <div class="pagination">
@@ -227,7 +247,9 @@
                 <div class="card-body">
                     <form *ngIf="!valid">
                         <div class="form-group"> <label>Van kuponkódod?</label>
-                            <div class="input-group"> <input type="text" id="coupon" class="form-control coupon" name="" placeholder="Kuponkód" [(ngModel)]="couponInput" [ngModelOptions]="{standalone: true}"> <span class="input-group-append"> <button class="btn btn-primary btn-apply coupon" (click)="checkCode()">Beváltom</button> </span>                                </div>
+                            <div class="input-group"> <input type="text" id="coupon" class="form-control coupon" name="" placeholder="Kuponkód" [(ngModel)]="couponInput" [ngModelOptions]="{standalone: true}"> <span class="input-group-append"> <button
+                                        class="btn btn-primary btn-apply coupon" (click)="checkCode()">Beváltom</button>
+                                </span> </div>
                         </div>
                     </form>
                     <span *ngIf="valid" class="coupon-valid">Sikeresen felhasználtad a kuponkódot.</span>
@@ -235,21 +257,23 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <dl class="dlist-align" *ngIf="discount != 0 || shipping != 1 && shipping != 0">
+                    <dl class="dlist-align" *ngIf="discount != 0 || shipping != 1 && shipping != 0 && shipping != 2 && shipping != 3 && shipping != 7">
                         <dt>Összeg:</dt>
-                        <dd class="text-right ml-3">{{(originalTotal | currency:'HUF':'':'1.0')!.replace(',','.')}} Ft</dd>
+                        <dd class="text-right ml-3">{{(originalTotal | currency:'HUF':'':'1.0')!.replace(',','.')}} Ft
+                        </dd>
                     </dl>
                     <dl class="dlist-align" *ngIf="discount != 0">
                         <dt>Kedvezmény ({{discount}}%):</dt>
                         <dd class="text-right text-danger ml-3">- {{(minus | currency:'HUF':'':'1.0')!.replace(',','.')}} Ft</dd>
                     </dl>
-                    <dl class="dlist-align" *ngIf="shipping != 1 && shipping != 0">
+                    <dl class="dlist-align" *ngIf="shipping != 1 && shipping != 0 && shipping != 2 && shipping != 3 && shipping != 7">
                         <dt>Szállítás:</dt>
                         <dd class="text-right text-dark b ml-3">+ {{(shippingCost | currency:'HUF':'':'1.0')!.replace(',','.')}} Ft</dd>
                     </dl>
                     <dl class="dlist-align">
                         <dt>Összesen:</dt>
-                        <dd class="text-right text-dark b ml-3"><strong>{{ (subtotal | currency:'HUF':'':'1.0')!.replace(',','.') }} Ft</strong></dd>
+                        <dd class="text-right text-dark b ml-3"><strong>{{ (subtotal |
+                                currency:'HUF':'':'1.0')!.replace(',','.') }} Ft</strong></dd>
                     </dl>
                     <hr> <a *ngIf="step == 3" class="btn btn-out btn-primary btn-square btn-main text-light" data-abc="true" (click)="sendEmail()"> Megrendelem </a> <a routerLink="/plants" [queryParams]="{ category: 'összes'}" class="btn btn-out btn-success btn-square btn-main mt-2"
                         data-abc="true">Folytatom a vásárlást</a>

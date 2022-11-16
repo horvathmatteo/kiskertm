@@ -19,7 +19,15 @@
                                 <!-- <td><strong>Ár:</strong></td> -->
                                 <td style="text-align: center;" class="price-tag"><strong> {{(kamra.price | currency:'HUF':'':'1.0')!.replace(',','.')}} Ft/db</strong></td>
                                 <td style="text-align: right;">
-                                    <button disabled data-dismiss="alert" class="btn btn-primary rounded-pill" (click)="addToCart(kamra)"><span class="tocart"><i class="material-icons">&#xe854;</i>áprilisig zárva</span></button>
+                                    <button data-dismiss="alert" class="btn btn-primary rounded-pill" (click)="addToCart(kamra)" [disabled]="!kamra.available"><span class="tocart"><i class="material-icons">&#xe854;</i>Kosárba</span></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td *ngIf="kamra.available" class="stock">
+                                    <strong>Elérhető:</strong> {{kamra.stock}} db
+                                </td>
+                                <td *ngIf="!kamra.available" class="stock">
+                                    <strong>Elérhető:</strong> <span class="out-of-stock"> nincs készleten</span>
                                 </td>
                             </tr>
                         </table>

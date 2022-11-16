@@ -186,5 +186,25 @@
     color: #fff;
     padding: 0 5px;
     vertical-align: top;
-    margin-left: -10px;
+    margin-left: 25px;
+    margin-top: -7px;
+}
+
+.basket {
+    background: url(./../../assets/kamra/basket.png);
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    position: relative;
+    width: 48px !important;
+}
+
+@media (max-width: 768px) {
+    .subscribe-btn {
+        margin-left: 250px;
+        margin-top: -70px;
+    }
+    .basket {
+        height: 48px !important;
+    }
 }

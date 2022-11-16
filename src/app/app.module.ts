@@ -35,7 +35,7 @@ import { registerLocaleData } from '@angular/common';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
 import { VegetablesComponent } from './vegetables/vegetables.component';
-import { KamraComponent } from './kamra/kamra.component';
+import { KamraComponent } from './admin/dashboard/kamra/kamra.component';
 import { AddKamraComponent } from './components/add-kamra/add-kamra.component';
 import { KamraDetailsComponent } from './components/kamra-details/kamra-details.component';
 import { KamraListComponent } from './components/kamra-list/kamra-list.component';
@@ -44,6 +44,18 @@ import { JamOrderComponent } from './jam-order/jam-order.component';
 import { CartComponent } from './cart/cart.component';
 import { PopupComponent } from './shared/popup/popup.component';
 import { AlertComponent } from './shared/alert/alert.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { LoginComponent } from './admin/login/login.component';
+import { CardComponent } from './admin/shared/card/card.component';
+import { StockComponent } from './admin/dashboard/stock/stock.component';
+import { NavComponent } from './admin/shared/nav/nav.component';
+import { PlantsComponent } from './admin/dashboard/plants/plants.component';
+import { DialogComponent } from './admin/shared/dialog/dialog.component';
+import { AddDialogComponent } from './admin/shared/add-dialog/add-dialog.component';
+import { KamraCardComponent } from './admin/shared/card/kamra-card/kamra-card.component';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { KamraOrderComponent } from './kamra-order/kamra-order.component';
+import { ChristmasPresentComponent } from './christmas-present/christmas-present.component';
 
 registerLocaleData(localeHu, 'hu');
 
@@ -79,7 +91,18 @@ const routes: Routes = [
     JamOrderComponent,
     CartComponent,
     PopupComponent,
-    AlertComponent
+    AlertComponent,
+    DashboardComponent,
+    LoginComponent,
+    CardComponent,
+    StockComponent,
+    NavComponent,
+    PlantsComponent,
+    DialogComponent,
+    AddDialogComponent,
+    KamraCardComponent,
+    KamraOrderComponent,
+    ChristmasPresentComponent
   ],
   imports: [
     BrowserModule,
@@ -96,7 +119,8 @@ const routes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireFunctionsModule,
-    RichTextEditorModule
+    AngularFireStorageModule,
+    RichTextEditorModule,
   ],
   providers: [
     {

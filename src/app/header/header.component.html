@@ -10,7 +10,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
         <div class="container">
             <a class="navbar-brand" routerLink='/home'>
-                <img class="logo" src="assets/logo-web.png" alt="">
+                <img class="logo" src="assets/Kiskert-M_logo.png" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -21,7 +21,10 @@
                         <button class="btn nav-link" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/home" routerLinkActive="active">Kezdőlap
                         </button>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item">
+                        <button class="btn nav-link" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/kamra-order" routerLinkActive="active">Kamra rendelés</button>
+                    </li>
+                    <!-- <li class="nav-item dropdown">
                         <button class="btn nav-link dropdown-toggle" routerLinkActive="active" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Palánták</button>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'összes'}">Összes</a>
@@ -35,12 +38,8 @@
                             <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'saláták'}">Saláták</a>
                             <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'édesburgonya'}">Édesburgonya</a>
                             <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/plants" routerLinkActive="active" [queryParams]="{ category: 'egyéb'}">Egyéb</a>
-                            <!-- <a class="dropdown-item order" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/kamra-order" routerLinkActive="active">Rendelés</a> -->
                         </div>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn nav-link" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/order" routerLinkActive="active">Palántarendelés</button>
-                    </li>
+                    </li> -->
                     <li class="nav-item dropdown">
                         <button class="btn nav-link dropdown-toggle" routerLinkActive="active" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Kamra</button>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -48,9 +47,9 @@
                             <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'lekvár'}">Lekvárok</a>
                             <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'szörp'}">Szörpök</a>
                             <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'ivólé'}">Ivólevek</a>
-                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'szárítottfűszerek'}">Szárított fűszerek</a>
                             <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'zöldségkrémek'}">Zöldségkrémek</a>
                             <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/kamra" routerLinkActive="active" [queryParams]="{ category: 'egyéb'}">Egyéb</a>
+                            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/christmas-present" routerLinkActive="active">Karácsonyi ajándékcsomagok</a>
                             <!-- <a class="dropdown-item order" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/kamra-order" routerLinkActive="active">Rendelés</a> -->
                         </div>
                     </li>
@@ -58,16 +57,20 @@
                         <button class="btn nav-link" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/vegetable-box" routerLinkActive="active">Zöldségdoboz</button>
                     </li>
                     <li class="nav-item">
+                        <button class="btn nav-link" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/order" routerLinkActive="active">Palántarendelés</button>
+                    </li>
+                    <li class="nav-item">
                         <button class="btn nav-link" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/blog" routerLinkActive="active">Blog</button>
                     </li>
                     <li class="nav-item">
-                        <button class="btn nav-link position-relative" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/cart" routerLinkActive="active"><i class="material-icons arrow" style="font-size: 30px;">&#xe8cc;</i>
+                        <button class="btn nav-link position-relative basket" data-toggle="collapse" data-target=".navbar-collapse" routerLink="/cart" routerLinkActive="active">
+                            <!-- <i class="material-icons arrow" style="font-size: 30px;">&#xe8cc;</i> -->
                             <span *ngIf="counter != 0" class='badge badge-warning' id='lblCartCount'> {{counter}}</span>
                             <!-- <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-2"><span class="visually-hidden"></span></span> -->
                         </button>
                     </li>
                     <li class="nav-item">
-                        <button class="btn btn-outline-success" role="button" data-toggle="modal" data-target="#myModal" role="button" href="#">Hírlevél</button>
+                        <button class="btn btn-outline-success subscribe-btn" role="button" data-toggle="modal" data-target="#myModal" role="button" href="#">Hírlevél</button>
                     </li>
                 </ul>
             </div>

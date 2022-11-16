@@ -15,7 +15,7 @@ export class PopupComponent implements OnInit {
   @ViewChild('myModal2') modal: any;
 
   constructor() { 
-    console.log(this.modal)
+    //console.log(this.modal)
   }
 
   ngOnInit(): void {

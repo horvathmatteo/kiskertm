@@ -9,4 +9,6 @@ export class Kamra {
     published?: boolean;
     quantity?: number;
     total?: number;
+    available?: boolean
+    stock?: number
 }
